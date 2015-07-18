@@ -1,4 +1,4 @@
-@extends('front.partials.skeleton')
+@extends('layouts.partials.skeleton')
 
 @section('body')
     <div class="container">
@@ -10,7 +10,7 @@
                 @endforeach
             </div>
             <div class="col-lg-3">
-                @include('front.includes.sidebar')
+                @include('layouts.includes.sidebar')
             </div>
         </div>
     </div>

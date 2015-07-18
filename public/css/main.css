@@ -68,19 +68,25 @@ header h4 {
     font-family: "Podkova", serif;
 }
 
-header ul a {
-    /*color: #ecf0f1;
-    padding: 7px 15px;
-    transition: color 0.5s ease, border-bottom 0.5s ease;
-    border-bottom: 3px solid #2c3e50;*/
-}
-
 header ul a:first-letter {
     text-transform: uppercase;
 }
 
 header ul a:hover {
     color: #285b8c;
+}
+
+/* ==========================================================================
+   Aside
+   ========================================================================== */
+
+aside ul {
+    list-style: none;
+    margin: 0;
+}
+
+aside img {
+    padding: 15px;
 }
 
 /* ==========================================================================
