@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class CommentTableSeeder extends Seeder {
@@ -14,39 +15,53 @@ class CommentTableSeeder extends Seeder {
 
         DB::table('comments')->insert([
             [
-                'email'   => 'lea@mail.com',
-                'message' => 'Genial !',
-                'post_id' => 1
+                'email'      => 'lea@mail.com',
+                'message'    => 'Genial !',
+                'post_id'    => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ],
             [
-                'email'   => 'eve@mail.com',
-                'message' => 'Mais trop !',
-                'post_id' => 1
+                'email'      => 'eve@mail.com',
+                'message'    => 'Mais trop !',
+                'post_id'    => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ],
             [
-                'email'   => 'tom@mail.com',
-                'message' => 'Awesome !',
-                'post_id' => 2
+                'email'      => 'tom@mail.com',
+                'message'    => 'Awesome !',
+                'post_id'    => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ],
             [
-                'email'   => 'paul@mail.com',
-                'message' => 'Mouai pas terrible',
-                'post_id' => 3
+                'email'      => 'paul@mail.com',
+                'message'    => 'Mouai pas terrible',
+                'post_id'    => 3,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ],
             [
-                'email'   => 'sam@mail.com',
-                'message' => 'J\'y suis allé c\'était ouf !',
-                'post_id' => 3
+                'email'      => 'sam@mail.com',
+                'message'    => 'J\'y suis allé c\'était ouf !',
+                'post_id'    => 3,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ],
             [
-                'email'   => 'neo@mail.com',
-                'message' => 'Remboursééé !',
-                'post_id' => 3
+                'email'      => 'neo@mail.com',
+                'message'    => 'Remboursééé !',
+                'post_id'    => 3,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ],
             [
-                'email'   => 'mat@mail.com',
-                'message' => 'A voir',
-                'post_id' => 4
+                'email'      => 'mat@mail.com',
+                'message'    => 'A voir',
+                'post_id'    => 4,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ],
         ]);
     }
