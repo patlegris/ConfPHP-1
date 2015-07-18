@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'HomeController@showPosts');
+
+Route::resource('post', 'PostController');

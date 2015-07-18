@@ -1,22 +1,26 @@
 <article>
     <h3>
-        <a href="#">{{ $post->title }}</a>
+        <a href="{{ url('post', $post->id) }}">{{ $post->title }}</a>
     </h3>
 
-    <table>
-        <tr>
-            <td>
-                <img src="{{ url('upload', $post->thumbnail_link) }}" alt="test" class="img-thumbnail"/>
-            </td>
-            <td class="excerpt">
-                {{ $post->excerpt }}
-                ... <a href="#">lire la suite</a>
-            </td>
-        </tr>
-    </table>
-
     <p>
+        <img src="{{ url('upload', $post->thumbnail_link) }}" alt="test" class="img-thumbnail"/>
+        <span class="txt-thumbnail">
+            {{ $post->excerpt }}
+            ... <a href="#">lire la suite</a>
+        </span>
+    </p>
+
+    <p class="url-site">
+        {!! MyHtml::link('Lien vers le site de la conférence', $post->url_site) !!}
+    </p>
+
+    <p class="keyword">
         Mots clefs: @foreach($post->tags as $tag)@include('tag.partials.show')@endforeach
+    </p>
+
+    <p class="count-comment">
+        Nombre de commentaires :
     </p>
 
     <div class="date">
