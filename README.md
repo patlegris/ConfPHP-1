@@ -20,4 +20,4 @@
     
 * __Launch__ the install.sh : `./install.sh`
     
-* __Open__ your browser to the address [localhost:8000](http://localhost:8000)
+* __Open__ your browser at the address [localhost:8000](http://localhost:8000)
