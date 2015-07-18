@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration {
             $table->dateTime('date_end');
             $table->string('thumbnail_link');
             $table->string('url_site');
-            $table->enum('status', ['published', 'unpublished']);
+            $table->enum('status', ['publish', 'unpublish'])->default('publish');
 
             $table->softDeletes();
             $table->timestamps();

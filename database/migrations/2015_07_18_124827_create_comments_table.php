@@ -15,10 +15,9 @@ class CreateCommentsTable extends Migration {
             $table->increments('id');
             $table->integer('post_id')->unsigned();
             $table->string('email');
-            $table->string('slug', 100);
             $table->text('message');
-            $table->string('status');
-            $table->string('spam');
+            $table->string('status')->default('publish');
+            $table->string('spam')->default('no-spam');
 
             $table->timestamps();
 
