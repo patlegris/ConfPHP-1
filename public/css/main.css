@@ -1,0 +1,112 @@
+/* ==========================================================================
+   Imports
+   ========================================================================== */
+@import url(http://fonts.googleapis.com/css?family=Cousine);
+@import url(http://fonts.googleapis.com/css?family=Podkova);
+
+/* ==========================================================================
+   Standard tags
+   ========================================================================== */
+
+body {
+    background: #ecf0f1;
+}
+
+h3 {
+    font-family: 'Cousine', serif;
+    font-weight: bold;
+}
+
+a {
+    color: #E66067;
+}
+
+article {
+    margin-bottom: 10px;
+    padding: 20px 0 50px 20px;
+    border-bottom: 2px dashed #E66067;
+}
+
+article:last-of-type {
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+header {
+    background-image: linear-gradient(to bottom, #2980b9 0, #3498db 100%);
+}
+
+header h1,
+header h4 {
+    margin: 0;
+    padding: 0;
+}
+
+header h1 a {
+    font-size: 5rem;
+    font-family: "Podkova", serif;
+    font-weight: bold;
+    text-decoration: none;
+    color: #275181;
+    text-shadow: 0 0 10px #fff;
+    transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+header h1 a:hover {
+    text-decoration: none;
+    color: #285b8c;
+    text-shadow: 0 0 20px #fff;
+}
+
+header h4 {
+    margin: 0;
+    padding: 0;
+    text-indent: 10rem;
+    font-family: "Podkova", serif;
+}
+
+header ul a {
+    /*color: #ecf0f1;
+    padding: 7px 15px;
+    transition: color 0.5s ease, border-bottom 0.5s ease;
+    border-bottom: 3px solid #2c3e50;*/
+}
+
+header ul a:first-letter {
+    text-transform: uppercase;
+}
+
+header ul a:hover {
+    color: #285b8c;
+}
+
+/* ==========================================================================
+   Helpers
+   ========================================================================== */
+
+.title {
+    padding: 40px 0;
+}
+
+.date {
+    padding: 5px;
+    display: inline-block;
+    text-transform: uppercase;
+    background: #F7911E;
+    color: #fff;
+    transform: skew(-9deg) rotate(-1deg);
+}
+
+.excerpt {
+    vertical-align: top;
+    max-width: 512px;
+    font-size: 2rem;
+}
+
+.img-thumbnail {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 0 20px 20px 0;
+}

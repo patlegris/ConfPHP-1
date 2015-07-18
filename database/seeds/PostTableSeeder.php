@@ -15,16 +15,17 @@ class PostTableSeeder extends Seeder {
 
         DB::table('posts')->insert([
             [
-                'title'      => 'Symfony Live Madrid 2015',
-                'excerpt'    => 'SensioLabs Madrid is proud to announce the third edition of the exceptionally successful SymfonyLive Madrid.',
-                'content'    => 'The two day conference will take place on Thursday 25th - Friday 26th September 2015, in the heart of Madrid, and will bring together the sharpest minds in open source enterprise software development. Day one is a workshop day consisting of hands-on training courses from industry leading Symfony experts. Day two is the main conference day when we\'re pulling out all the stops. Talks on Symfony, Drupal, BDD and wider PHP topics will make this an event to remember.',
-                'slug'       => str_slug('Symfony Live Madrid 2015'),
-                'user_id'    => 1,
-                'date_start' => '2015-10-29 09:00:00',
-                'date_end'   => '2015-10-31 18:00:00',
-                'url_site'   => 'http://berlin2015.live.symfony.com/',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
+                'title'          => 'Symfony Live Madrid 2015',
+                'excerpt'        => 'SensioLabs Madrid is proud to announce the third edition of the exceptionally successful SymfonyLive Madrid.',
+                'content'        => 'The two day conference will take place on Thursday 25th - Friday 26th September 2015, in the heart of Madrid, and will bring together the sharpest minds in open source enterprise software development. Day one is a workshop day consisting of hands-on training courses from industry leading Symfony experts. Day two is the main conference day when we\'re pulling out all the stops. Talks on Symfony, Drupal, BDD and wider PHP topics will make this an event to remember.',
+                'slug'           => str_slug('Symfony Live Madrid 2015'),
+                'user_id'        => 1,
+                'date_start'     => '2015-10-29 09:00:00',
+                'date_end'       => '2015-10-31 18:00:00',
+                'url_site'       => 'http://berlin2015.live.symfony.com/',
+                'thumbnail_link' => 'symfony_madrid.png',
+                'created_at'     => Carbon::now(),
+                'updated_at'     => Carbon::now()
             ],
             [
                 'title'      => 'Symfony Live Madrid 2014',
@@ -35,6 +36,7 @@ class PostTableSeeder extends Seeder {
                 'date_start' => '2014-10-29 09:00:00',
                 'date_end'   => '2014-10-31 18:00:00',
                 'url_site'   => 'http://berlin2014.live.symfony.com/',
+                'thumbnail_link' => 'symfony_madrid.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -47,6 +49,7 @@ class PostTableSeeder extends Seeder {
                 'date_start' => '2014-09-29 09:00:00',
                 'date_end'   => '2014-09-31 18:00:00',
                 'url_site'   => 'http://london2014.live.symfony.com/',
+                'thumbnail_link' => 'symfony_london.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -59,6 +62,7 @@ class PostTableSeeder extends Seeder {
                 'date_start' => '2014-08-29 09:00:00',
                 'date_end'   => '2014-08-31 18:00:00',
                 'url_site'   => 'http://laracon.eu/2014/',
+                'thumbnail_link' => 'laravel_amsterdam2014.jpg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -71,6 +75,7 @@ class PostTableSeeder extends Seeder {
                 'date_start' => '2014-07-29 09:00:00',
                 'date_end'   => '2014-07-31 18:00:00',
                 'url_site'   => 'http://afup.org/pages/phptourlyon2014/',
+                'thumbnail_link' => 'rasmusLerdorf.jpg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
