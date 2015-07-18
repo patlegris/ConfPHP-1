@@ -18,7 +18,6 @@
     * __DBNAME__
     * __HOST__
     
-* __Launch__ the install.sh :
-    ./install.sh
+* __Launch__ the install.sh : `./install.sh`
     
 * __Open__ your browser to the address [localhost:8000](http://localhost:8000)
