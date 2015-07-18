@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration {
             $table->string('title');
             $table->string('excerpt', 60);
             $table->string('content');
+            $table->string('slug', 100);
             $table->dateTime('date_start');
             $table->dateTime('date_end');
             $table->string('thumbnail_link');
