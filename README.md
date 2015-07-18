@@ -3,6 +3,7 @@
 ## How to install ?
 
 * __Clone__ this repository :
+
     git clone https://github.com/soywod/ConfPHP.git
     
 * __Copy__ the .env.example into a .env and __fill__ at least :
