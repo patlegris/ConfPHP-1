@@ -1,5 +1,5 @@
 <aside>
-    <h2 class="text-center">Sponsors</h2>
+    <h2 class="text-left">Sponsors</h2>
     <ul>
         <li><img src="{{ url('logos', 'elao_logo_150px.png') }}" alt="Logo élao"/></li>
         <li><img src="{{ url('logos', 'zol-logo.png') }}" alt="Logo zol"/></li>

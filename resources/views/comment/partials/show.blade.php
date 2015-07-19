@@ -1,6 +1,7 @@
 <div class="comment well">
     <p>
         <strong>
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
             {{ $comment->email }}
         </strong>
     </p>
