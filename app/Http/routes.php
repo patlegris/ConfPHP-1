@@ -14,3 +14,4 @@
 Route::get('/', 'BlogController@indexPublishPosts');
 
 Route::resource('post', 'PostController');
+Route::resource('comment', 'CommentController');

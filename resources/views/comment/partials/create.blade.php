@@ -3,7 +3,8 @@
         Laisser un commentaire
     </h3>
 
-    {!! Form::open(['url' => 'comment/store', 'class' => 'form-horizontal']) !!}
+    {!! Form::open(['url' => 'comment', 'class' => 'form-horizontal']) !!}
+    {!! Form::hidden('post_id', $post->id) !!}
 
     <div class="form-group">
         {!! Form::label('email', 'Email', ['class' => 'col-sm-2 control-label']) !!}
