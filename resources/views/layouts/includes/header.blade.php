@@ -6,9 +6,9 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-default">
+    <nav id="navbar-top" class="navbar navbar-default">
         <div class="container">
-            <div id="navbar" class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="{{ url('/') }}">accueil</a></li>
                     <li><a href="{{ url('about') }}">à propos</a></li>
