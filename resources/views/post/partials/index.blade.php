@@ -17,7 +17,7 @@
         </p>
 
         <p class="keyword">
-            Mots clefs: @foreach($post->tags as $tag)@include('tag.partials.show')@endforeach
+            Mots clefs: @include('tag.partials.index')
         </p>
 
         <p class="count-comment">
