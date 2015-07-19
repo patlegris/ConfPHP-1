@@ -1,8 +1,7 @@
 @extends('layouts.skeleton')
 
 @section('body')
-    @include('front.includes.header')
-    @include('front.partials.menu')
+    @include('dashboard.partials.menu')
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
@@ -10,7 +9,7 @@
                 @include('post.partials.indexPublish')
             </div>
             <div class="col-lg-3">
-                @include('front.includes.sidebar')
+                @include('layouts.includes.sidebar')
             </div>
         </div>
     </div>

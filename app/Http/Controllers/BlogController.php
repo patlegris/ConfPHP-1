@@ -20,4 +20,10 @@ class BlogController extends Controller {
 
         return view('front.index', compact('posts'));
     }
+
+    public function index() {
+        $post = Post::all();
+
+        return view('dashboard.index', compact('post'));
+    }
 }
