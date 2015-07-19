@@ -8,7 +8,7 @@
             {!! MyHtml::thumb(url('upload', $post->thumbnail_link), $post->slug) !!}
             <span class="txt-thumbnail">
                 {{ $post->excerpt }}
-                ... <a href="#">lire la suite</a>
+                ... <a href="{{ url('post', $post->id) }}">lire la suite</a>
             </span>
         </p>
 
@@ -24,11 +24,11 @@
             Nombre de commentaires :
         </p>
 
-        <div class="date">
+        <p class="date">
             début:
-            <time datetime="{{ $post->date_start }}" pubdate>{{ $post->date_start }}</time>
+            <time datetime="{{ $post->date_start }}">{{ $post->date_start }}</time>
             fin:
-            <time datetime="{{ $post->date_end }}" pubdate>{{ $post->date_end }}</time>
-        </div>
+            <time datetime="{{ $post->date_end }}">{{ $post->date_end }}</time>
+        </p>
     </article>
 @endforeach

@@ -10,12 +10,12 @@
         <div class="container">
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">accueil</a></li>
+                    <li class="active"><a href="{{ url('/') }}">accueil</a></li>
                     <li><a href="#">à propos</a></li>
                     <li><a href="#">contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">login</a></li>
+                    <li><a href="#">administration</a></li>
                 </ul>
             </div>
         </div>

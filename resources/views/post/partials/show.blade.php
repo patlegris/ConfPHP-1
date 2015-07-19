@@ -1,6 +1,6 @@
 <article>
     <h3>
-        <a href="{{ url('post', $post->id) }}">{{ $post->title }}</a>
+        {{ $post->title }}
     </h3>
 
     <p>
@@ -16,10 +16,11 @@
         Mots clefs: @include('tag.partials.index')
     </p>
 
-    <div class="date">
+    <p class="date">
         début:
-        <time datetime="{{ $post->date_start }}" pubdate>{{ $post->date_start }}</time>
+        <time datetime="{{ $post->date_start }}">{{ $post->date_start }}</time>
         fin:
-        <time datetime="{{ $post->date_end }}" pubdate>{{ $post->date_end }}</time>
-    </div>
+        <time datetime="{{ $post->date_end }}">{{ $post->date_end }}</time>
+    </p>
+
 </article>
