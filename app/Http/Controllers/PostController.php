@@ -42,9 +42,12 @@ class PostController extends Controller {
      *
      * @param  int $id
      * @return Response
+     * @internal param null $slug
+     * @internal param Request $request
      */
     public function show($id) {
-        $post = Post::find((int)$id);
+        if (!$post = Post::all()->where('slug', $id)->first())
+            $post = Post::find((int)$id);
 
         return view('post.show', compact('post'));
     }
