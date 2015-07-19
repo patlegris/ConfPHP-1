@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Post;
+use Response;
 use Illuminate\Http\Request;
 
 class PostController extends Controller {
@@ -42,7 +44,9 @@ class PostController extends Controller {
      * @return Response
      */
     public function show($id) {
-        //
+        $post = Post::find((int)$id);
+
+        return view('post.show', compact('post'));
     }
 
     /**
@@ -52,7 +56,7 @@ class PostController extends Controller {
      * @return Response
      */
     public function edit($id) {
-        //
+
     }
 
     /**
