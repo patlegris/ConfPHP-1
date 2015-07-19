@@ -5,7 +5,7 @@
         </h3>
 
         <p>
-            <img src="{{ url('upload', $post->thumbnail_link) }}" alt="test" class="img-thumbnail"/>
+            {!! MyHtml::thumb(url('upload', $post->thumbnail_link), $post->slug) !!}
             <span class="txt-thumbnail">
                 {{ $post->excerpt }}
                 ... <a href="#">lire la suite</a>

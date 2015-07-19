@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration {
             $table->integer('user_id')->nullable()->unsigned();
             $table->string('title');
             $table->string('excerpt', 60);
-            $table->string('content');
+            $table->text('content');
             $table->string('slug', 100);
             $table->dateTime('date_start');
             $table->dateTime('date_end');

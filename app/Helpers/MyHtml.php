@@ -24,8 +24,8 @@ class MyHtml {
         return '<a href="' . $href . '">' . $title . '</a>';
     }
 
-    public function thumb($title, $href) {
-        return '<a href="' . $href . '">' . $title . '</a>';
+    public function thumb($href, $alt = '') {
+        return '<img src="' . $href . '" alt="' . $alt . '-image" class="img-thumbnail" />';
     }
 
 }

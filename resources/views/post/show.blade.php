@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
-                <h2>Conférences intéressantes autour du PHP</h2>
+                <h2>Conférence intéressante autour du PHP</h2>
                 @include('post.partials.show')
             </div>
             <div class="col-lg-3">
