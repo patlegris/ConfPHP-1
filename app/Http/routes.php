@@ -16,3 +16,5 @@ Route::get('dashboard', 'BlogController@indexAllPosts');
 
 Route::resource('post', 'PostController');
 Route::resource('comment', 'CommentController');
+
+Route::put('post/{id}/status', 'PostController@updateStatus');

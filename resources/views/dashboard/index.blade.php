@@ -4,10 +4,6 @@
     @include('dashboard.partials.menu')
     @include('dashboard.includes.sidebar')
 
-    <div id="message">
-        <p>coucou</p>
-    </div>
-
     <section>
         <h1>Dashboard</h1>
         <div class="container-fluid">

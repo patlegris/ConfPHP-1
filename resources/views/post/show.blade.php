@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-lg-9">
                 <h2>Conférence intéressante autour du PHP</h2>
-                @include('post.partials.show')
+                @include('post.partials.showBlog')
 
                 @include('comment.partials.create')
 
@@ -16,7 +16,7 @@
                 </article>
             </div>
             <div class="col-lg-3">
-                @include('layouts.includes.sidebar')
+                @include('front.includes.sidebar')
             </div>
         </div>
     </div>

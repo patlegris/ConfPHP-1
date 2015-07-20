@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Post;
-use Response;
 use Illuminate\Http\Request;
+use Response;
 
 class PostController extends Controller {
 
@@ -73,6 +73,18 @@ class PostController extends Controller {
         //
     }
 
+    public function updateStatus(Request $request, $id) {
+        $post = Post::find($id);
+        $oldStatus = ucfirst($post->status);
+
+        if ($post->status == 'publish') $post->status = 'unpublish';
+        else $post->status = 'publish';
+
+        $post->save();
+
+        return view('post.partials.showDashboard', compact('post'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -82,6 +94,6 @@ class PostController extends Controller {
     public function destroy($id) {
         Post::destroy($id);
 
-        //return view('front.index')->with('message', 'Conférence supprimée.');
+        return 'Conférence supprimée';
     }
 }

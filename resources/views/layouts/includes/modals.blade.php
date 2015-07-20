@@ -11,7 +11,7 @@
             <div class="modal-footer text-right">
                 <div class="row">
                     <div class="col-lg-6 text-left">
-                        <img id="loader" src="{{ url('/logos/loader.gif') }}" alt="Loader" />
+                        <img class="loader" src="{{ url('/logos/loader.gif') }}" alt="Loader" />
                     </div>
                     <div class="col-lg-6 text-right">
                         <button type="button" class="btn btn-default" data-delete-post>Oui</button>
@@ -23,10 +23,17 @@
     </div>
 </div>
 
-<div id="modal-status-post" class="modal fade" role="dialog">
+<div id="modal-change-status-post" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <img id="loader" src="{{ url('/logos/loader.gif') }}" alt="Loader" />
+            <div class="modal-header text-center">
+                <h4>Veuillez patienter</h4>
+            </div>
+            <div class="modal-body text-center">
+                <img class="loader" src="{{ url('/logos/loader.gif') }}" alt="Loader" />
+            </div>
         </div>
     </div>
 </div>
+
+<div id="flash"></div>

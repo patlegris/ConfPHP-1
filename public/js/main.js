@@ -24,8 +24,8 @@ $(function () {
         }
     });
 
-    $("[data-delete-post]").on("click", function(e) {
-        $("#loader").fadeIn(300, function () {
+    $("[data-delete-post]").on("click", function (e) {
+        $(".loader").fadeIn(300, function () {
             $(this).delay(500);
             $.ajax({
                 url: currentForm.attr('action'),
@@ -33,13 +33,14 @@ $(function () {
                 data: currentForm.serialize(),
                 success: function (data, status) {
                     currentForm.parent().parent().remove();
-                    $("#loader").fadeOut(300, function() {
+                    $(".loader").fadeOut(300, function () {
                         currentForm = undefined;
                         $("#modal-delete-post").modal("hide");
+                        showFlash(data);
                     });
                 },
                 error: function (resultat, statut, erreur) {
-                    $("#loader").fadeOut(300, function() {
+                    $(".loader").fadeOut(300, function () {
                         currentForm = undefined;
                         $("#modal-delete-post").modal("hide");
                     });
@@ -48,40 +49,55 @@ $(function () {
         });
     });
 
-    $("form.delete").on("submit", function (e) {
+    $("section").on("submit", "form.status", function (e) {
+        var form = $(this),
+            postId = form.attr("id"),
+            modal = $("#modal-change-status-post"),
+            loader = $(modal.find(".loader"));
+
         e.preventDefault();
-        currentForm = $(this);
 
-        //$("#modal-delete-post").modal("show");
-        /*if (confirm("Voulez-vous vraiment supprimer cette conférence ?")) {
-            $("#loader").fadeIn(200, function () {
-                $(this).delay(500);
-                $.ajax({
-                    url: self.attr('action'),
-                    type: 'POST',
-                    data: self.serialize(),
-                    success: function (data, status) {
-                        $("#loader").fadeOut(200, function () {
-                            self.parent().parent().remove();
-                            //showMessage(data);
-                        });
-                    },
-                    error: function (resultat, statut, erreur) {
-                        $("#loader").fadeOut(200);
-                    }
-                });
-            });
-        }*/
+        loader.fadeIn(300, function () {
+            loader.delay(500);
+            $.ajax({
+                url: form.attr('action'),
+                type: 'POST',
+                data: form.serialize(),
 
-    });
+                success: function (data, status) {
+                    $("tr#" + postId)
+                        .html(data)
+                        .toggleClass("info")
+                        .toggleClass("success");
 
+                    loader.fadeOut(300, function () {
+                        modal.modal("hide");
+                    });
+                },
 
-    function showMessage(message) {
-        $("#message")
-        $("#message").fadeIn(200, function () {
-            $(this).delay(1500, function () {
-                $(this).fadeOut(200);
+                error: function (resultat, statut, erreur) {
+                    loader.fadeOut(300, function () {
+                        modal.modal("hide");
+                    });
+                }
             });
         });
+    }).on("submit", "form.delete", function (e) {
+        e.preventDefault();
+        currentForm = $(this);
+    });
+
+    $("#flash").on("mousedown", function() {
+        $(this).stop().fadeOut(500);
+    });
+
+    function showFlash(message) {
+        $("#flash")
+            .stop()
+            .html('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> ' + message)
+            .slideDown(500, function () {
+                $(this).delay(5000);
+                $(this).slideUp(500);
+            });
     }
 });

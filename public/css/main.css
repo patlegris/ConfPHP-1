@@ -188,7 +188,7 @@ footer ul a:first-letter {
     z-index: 2;
 }
 
-#loader {
+.loader {
     display: none;
 }
 
@@ -213,15 +213,15 @@ footer ul a:first-letter {
     z-index: 9;
 }*/
 
-#message {
+#flash {
     position: fixed;
-    top: 0;
+    top: 45px;
     left: 0;
     right: 0;
-    height: 45px;
+    height: 40px;
     background: #3c9a5f;
     z-index: 2;
-    line-height: 45px;
+    line-height: 40px;
     text-align: center;
     color: #fff;
     display: none;
