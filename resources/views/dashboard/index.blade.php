@@ -6,6 +6,7 @@
 
     <section>
         <h1>Dashboard</h1>
+        <span id="loader"><span id="gif"></span></span>
 
         <div class="container-fluid">
             <table class="table table-bordered">

@@ -82,8 +82,6 @@ class PostController extends Controller {
     public function destroy($id) {
         Post::destroy($id);
 
-        $posts = Post::all();
-
-        return view('post.partials.indexAllPosts', compact('posts'));
+        return view('front.index')->with('message', 'Conférence supprimée.');
     }
 }

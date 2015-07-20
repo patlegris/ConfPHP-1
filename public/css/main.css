@@ -36,6 +36,10 @@ section {
     margin: 70px 0 0 275px;
 }
 
+section h1 {
+    display: inline-block;
+}
+
 section button {
     width: 100%;
 }
@@ -181,5 +185,36 @@ footer ul a:first-letter {
 }
 
 .bs-component {
+    z-index: 2;
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(255 ,255, 255, 0.75);
+    z-index: 10;
+    display: none;
+}
+
+#loader #gif {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: url(/logos/loader.gif) center no-repeat ;
+    z-index: 9;
+}
+
+#message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 45px;
+    background: red;
     z-index: 2;
 }
