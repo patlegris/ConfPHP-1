@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'BlogController@indexPublishPosts');
+Route::get('dashboard', 'BlogController@indexAllPosts');
 
 Route::resource('post', 'PostController');
 Route::resource('comment', 'CommentController');

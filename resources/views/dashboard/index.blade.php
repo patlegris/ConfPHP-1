@@ -1,16 +1,31 @@
 @extends('layouts.skeleton')
 
 @section('body')
-    @include('dashboard.partials.menu')
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-9">
-                <h2>Conférences intéressantes autour du PHP</h2>
-                @include('post.partials.indexPublish')
-            </div>
-            <div class="col-lg-3">
-                @include('layouts.includes.sidebar')
-            </div>
+    @include('dashboard.includes.header')
+    @include('dashboard.includes.sidebar')
+
+    <section>
+        <h1>DASHBOARD</h1>
+
+        <div class="container-fluid">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Statut</th>
+                    <th>Titre</th>
+                    <th>Mots clefs</th>
+                    <th>Date début</th>
+                    <th>Date fin</th>
+                    <th>Dernière mise à jour</th>
+                    <th>Changer le statut</th>
+                    <th>Supprimer</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                @include('post.partials.indexAllPosts')
+                </tbody>
+            </table>
         </div>
-    </div>
+    </section>
 @endsection
