@@ -50,7 +50,7 @@ class PostTableSeeder extends Seeder {
                 'user_id'        => 1,
                 'status'         => 'publish',
                 'date_start'     => '2014-09-29 09:00:00',
-                'date_end'       => '2014-09-31 18:00:00',
+                'date_end'       => '2014-09-30 18:00:00',
                 'url_site'       => 'http://london2014.live.symfony.com/',
                 'thumbnail_link' => 'symfony_london.png',
                 'created_at'     => Carbon::now(),

@@ -8,9 +8,7 @@
         </div>
     @endif
 
-    <div id="message">
-        Coucou
-    </div>
+
 
     @include('dashboard.partials.menu')
 </header>

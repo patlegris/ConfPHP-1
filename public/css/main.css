@@ -189,6 +189,10 @@ footer ul a:first-letter {
 }
 
 #loader {
+    display: none;
+}
+
+/*#loader {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -207,14 +211,22 @@ footer ul a:first-letter {
     left: 0;
     background: url(/logos/loader.gif) center no-repeat ;
     z-index: 9;
-}
+}*/
 
 #message {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    width: 45px;
-    background: red;
+    height: 45px;
+    background: #3c9a5f;
     z-index: 2;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+    display: none;
+}
+
+.modal-backdrop {
+    z-index: 0;
 }

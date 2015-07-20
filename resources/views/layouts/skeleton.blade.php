@@ -6,6 +6,7 @@
 <body>
     @yield('body')
 
+    @include('layouts.includes.modals')
     @include('layouts.includes.scripts')
 </body>
 </html>

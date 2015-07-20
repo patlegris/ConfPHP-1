@@ -4,12 +4,14 @@
     @include('dashboard.partials.menu')
     @include('dashboard.includes.sidebar')
 
+    <div id="message">
+        <p>coucou</p>
+    </div>
+
     <section>
         <h1>Dashboard</h1>
-        <span id="loader"><span id="gif"></span></span>
-
         <div class="container-fluid">
-            <table class="table table-bordered">
+            <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>Statut</th>
