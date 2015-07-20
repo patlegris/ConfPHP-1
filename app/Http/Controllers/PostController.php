@@ -80,6 +80,10 @@ class PostController extends Controller {
      * @return Response
      */
     public function destroy($id) {
-        //
+        Post::destroy($id);
+
+        $posts = Post::all();
+
+        return view('post.partials.indexAllPosts', compact('posts'));
     }
 }

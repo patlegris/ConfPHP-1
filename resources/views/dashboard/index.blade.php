@@ -1,14 +1,14 @@
 @extends('layouts.skeleton')
 
 @section('body')
-    @include('dashboard.includes.header')
+    @include('dashboard.partials.menu')
     @include('dashboard.includes.sidebar')
 
     <section>
-        <h1>DASHBOARD</h1>
+        <h1>Dashboard</h1>
 
         <div class="container-fluid">
-            <table class="table table-bordered table-hover">
+            <table class="table table-bordered">
                 <thead>
                 <tr>
                     <th>Statut</th>
@@ -28,4 +28,5 @@
             </table>
         </div>
     </section>
+
 @endsection

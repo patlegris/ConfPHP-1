@@ -33,7 +33,9 @@
         </td>
 
         <td class="text-center">
+            {!! Form::open(['class' => 'delete', 'url' => 'post/' . $post->id, 'method' => 'DELETE']) !!}
             <button class="btn btn-danger">Supprimer</button>
+            {!! Form::close() !!}
         </td>
     </tr>
 @endforeach

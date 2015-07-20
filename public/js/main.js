@@ -1,5 +1,6 @@
 $(function() {
-    var navbarOffsetTop = $("#navbar-top").offset().top;
+
+    if (navbar = $("#navbar-top").offset()) var navbarOffsetTop = navbar.top;
 
     $(document).on("scroll", function(e) {
         if ($(this).scrollTop() > navbarOffsetTop) {
@@ -19,4 +20,15 @@ $(function() {
             });
         }
     });
+
+    $("form.delete").on("submit", function(e) {
+        e.preventDefault();
+        $.post(
+            $(this).attr('action'),
+            $(this).serialize(),
+            function(data) {
+                console.log("data : " + data);
+            }
+        );
+    })
 });
