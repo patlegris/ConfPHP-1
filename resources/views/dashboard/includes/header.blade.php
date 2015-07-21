@@ -8,5 +8,5 @@
         </div>
     @endif
 
-    @include('dashboard.partials.menu')
+    @include('dashboard.includes.menu')
 </header>

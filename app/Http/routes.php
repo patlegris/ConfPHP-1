@@ -14,14 +14,14 @@
 /*
  * Front routes
  */
-Route::get('/', 'BlogController@indexPublishPosts');
-Route::get('about', 'BlogController@about');
-Route::get('contact', 'BlogController@contact');
+Route::get('/', 'FrontController@index');
+Route::get('about', 'FrontController@about');
+Route::get('contact', 'FrontController@contact');
 
 /*
  * Dashboard routes
  */
-Route::get('dashboard', 'BlogController@indexAllPosts');
+Route::get('dashboard', 'DashboardController@index');
 
 /*
  * Resource routes

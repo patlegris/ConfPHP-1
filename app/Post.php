@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model {
@@ -13,4 +14,8 @@ class Post extends Model {
     public function comments() {
         return $this->hasMany('App\Comment');
     }
+
+    /*public function getDateStartAttribute($date) {
+        return Carbon::parse($date)->format
+    }*/
 }

@@ -7,7 +7,9 @@
 </td>
 
 <td>
-    @include('tag.partials.index')
+    @foreach($post->tags as $tag)
+        @include('front.partials.tag.show')
+    @endforeach
 </td>
 
 <td>

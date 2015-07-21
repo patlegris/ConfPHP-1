@@ -49,7 +49,7 @@ class PostController extends Controller {
         if (!$post = Post::all()->where('slug', $id)->first())
             $post = Post::find((int)$id);
 
-        return view('post.show', compact('post'));
+        return view('front.show', compact('post'));
     }
 
     /**
@@ -82,7 +82,7 @@ class PostController extends Controller {
         $post->save();
 
         return response()->json([
-            'html'    => view('post.partials.showDashboard', compact('post'))->render(),
+            'html'    => view('dashboard.partials.post.show', compact('post'))->render(),
             'message' => 'Statut de conférence modifié (' . $post->status . ')',
             'id'      => $post->id
         ]);

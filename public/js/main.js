@@ -25,12 +25,13 @@ $(function () {
     });
 
     $("[data-delete-post]").on("click", function (e) {
-        $(".loader").fadeIn(300, function () {
+        $(".loader").css("opacity", 1).fadeIn(300, function () {
             $(this).delay(500);
             $.ajax({
                 url: currentForm.attr('action'),
                 type: 'POST',
                 data: currentForm.serialize(),
+
                 success: function (data, status) {
                     currentForm.parent().parent().remove();
                     $(".loader").fadeOut(300, function () {
@@ -56,8 +57,9 @@ $(function () {
 
         e.preventDefault();
 
-        loader.fadeIn(300, function () {
+        loader.css("opacity", 1).fadeIn(300, function () {
             loader.delay(500);
+
             $.ajax({
                 url: form.attr('action'),
                 type: 'POST',
@@ -87,13 +89,14 @@ $(function () {
         currentForm = $(this);
     });
 
-    $("#flash").on("mousedown", function() {
+    $("#flash").on("mousedown", function () {
         $(this).stop().fadeOut(0);
     });
 
     function showFlash(message) {
         $("#flash")
             .stop()
+            .hide(0)
             .html('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> ' + message)
             .slideDown(500, function () {
                 $(this).fadeOut(5000);

@@ -1,7 +1,7 @@
 @extends('layouts.skeleton')
 
 @section('body')
-    @include('dashboard.partials.menu')
+    @include('dashboard.includes.menu')
     @include('dashboard.includes.sidebar')
 
     <section>
@@ -22,7 +22,11 @@
                 </thead>
 
                 <tbody>
-                @include('post.partials.indexAllPosts')
+                @foreach($posts as $post)
+                    <tr id="{{ $post->id }}" class="{{ $post->status == 'publish' ? 'info' : 'success' }}">
+                        @include('dashboard.partials.post.show')
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
