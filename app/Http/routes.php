@@ -11,10 +11,25 @@
 |
 */
 
+/*
+ * Front routes
+ */
 Route::get('/', 'BlogController@indexPublishPosts');
+Route::get('about', 'BlogController@about');
+Route::get('contact', 'BlogController@contact');
+
+/*
+ * Dashboard routes
+ */
 Route::get('dashboard', 'BlogController@indexAllPosts');
 
+/*
+ * Resource routes
+ */
 Route::resource('post', 'PostController');
 Route::resource('comment', 'CommentController');
 
+/*
+ * Other specific routes
+ */
 Route::put('post/{id}/status', 'PostController@updateStatus');

@@ -24,7 +24,7 @@ class PostController extends Controller {
      * @return Response
      */
     public function create() {
-        //
+
     }
 
     /**
@@ -75,14 +75,17 @@ class PostController extends Controller {
 
     public function updateStatus(Request $request, $id) {
         $post = Post::find($id);
-        $oldStatus = ucfirst($post->status);
 
         if ($post->status == 'publish') $post->status = 'unpublish';
         else $post->status = 'publish';
 
         $post->save();
 
-        return view('post.partials.showDashboard', compact('post'));
+        return response()->json([
+            'html'    => view('post.partials.showDashboard', compact('post'))->render(),
+            'message' => 'Statut de conférence modifié (' . $post->status . ')',
+            'id'      => $post->id
+        ]);
     }
 
     /**

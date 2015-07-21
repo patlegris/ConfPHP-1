@@ -5,7 +5,6 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ url('dashboard') }}">dashboard</a></li>
                 <li><a href="{{ url('/') }}">retour au site</a></li>
                 <li><a href="{{ url('auth/logout') }}">se déconnecter</a></li>
             </ul>

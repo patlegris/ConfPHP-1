@@ -81,7 +81,7 @@ header h4 {
     font-family: "Podkova", serif;
 }
 
-header ul a:first-letter,
+nav ul a:first-letter,
 aside ul a:first-letter {
     text-transform: uppercase;
 }
@@ -129,6 +129,11 @@ aside.fixed a {
 }
 
 aside.fixed a:hover {
+    background: #275181;
+    color: #fff;
+}
+
+aside.fixed a.active {
     background: #275181;
     color: #fff;
 }
@@ -225,6 +230,7 @@ footer ul a:first-letter {
     text-align: center;
     color: #fff;
     display: none;
+    cursor: pointer;
 }
 
 .modal-backdrop {

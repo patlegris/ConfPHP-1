@@ -51,7 +51,6 @@ $(function () {
 
     $("section").on("submit", "form.status", function (e) {
         var form = $(this),
-            postId = form.attr("id"),
             modal = $("#modal-change-status-post"),
             loader = $(modal.find(".loader"));
 
@@ -65,13 +64,14 @@ $(function () {
                 data: form.serialize(),
 
                 success: function (data, status) {
-                    $("tr#" + postId)
-                        .html(data)
+                    $("tr#" + data.id)
+                        .html(data.html)
                         .toggleClass("info")
                         .toggleClass("success");
 
                     loader.fadeOut(300, function () {
                         modal.modal("hide");
+                        showFlash(data.message);
                     });
                 },
 
@@ -88,7 +88,7 @@ $(function () {
     });
 
     $("#flash").on("mousedown", function() {
-        $(this).stop().fadeOut(500);
+        $(this).stop().fadeOut(0);
     });
 
     function showFlash(message) {
@@ -96,8 +96,7 @@ $(function () {
             .stop()
             .html('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> ' + message)
             .slideDown(500, function () {
-                $(this).delay(5000);
-                $(this).slideUp(500);
+                $(this).fadeOut(5000);
             });
     }
 });

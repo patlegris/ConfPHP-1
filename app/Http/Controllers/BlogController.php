@@ -26,4 +26,12 @@ class BlogController extends Controller {
 
         return view('dashboard.index', compact('posts'));
     }
+
+    public function about() {
+        return view('front.about');
+    }
+
+    public function contact() {
+        return view('front.contact');
+    }
 }

@@ -1,11 +1,12 @@
 <?php
+
 namespace App\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class MyHtmlFacade extends Facade {
+class ActiveFacade extends Facade {
 
     protected static function getFacadeAccessor() {
-        return 'MyHtml';
+        return 'active';
     }
 }
