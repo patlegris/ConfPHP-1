@@ -32,8 +32,17 @@ article:last-of-type {
     border-bottom: none;
 }
 
+article .date {
+    padding: 5px;
+    display: inline-block;
+    text-transform: uppercase;
+    background: #F7911E;
+    color: #fff;
+    transform: skew(-9deg) rotate(-1deg);
+}
+
 section {
-    margin: 70px 0 0 275px;
+    margin: 70px 0 80px 275px;
 }
 
 section h1 {
@@ -45,7 +54,11 @@ section button {
 }
 
 .well {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    margin-bottom: 50px;
 }
 
 /* ==========================================================================
@@ -162,15 +175,6 @@ footer ul a:first-letter {
     padding: 40px 0;
 }
 
-article .date {
-    padding: 5px;
-    display: inline-block;
-    text-transform: uppercase;
-    background: #F7911E;
-    color: #fff;
-    transform: skew(-9deg) rotate(-1deg);
-}
-
 .img-thumbnail {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     margin: 0 20px 20px 0;
@@ -191,11 +195,11 @@ article .date {
 }
 
 .navbar {
-    z-index: 1;
+    z-index: 3;
 }
 
 .bs-component {
-    z-index: 2;
+    z-index: 4;
 }
 
 .loader {

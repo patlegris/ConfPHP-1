@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Post;
+use App\Tag;
 
 class DashboardController extends Controller {
 
@@ -16,9 +17,5 @@ class DashboardController extends Controller {
             ->sortByDesc('date_start');
 
         return view('dashboard.indexPost', compact('posts'));
-    }
-
-    public function createPost() {
-        return view('dashboard.createPost');
     }
 }

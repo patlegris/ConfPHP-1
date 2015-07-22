@@ -2,10 +2,19 @@
 
 namespace App;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model {
+
+    protected $fillable = [
+        'user_id',
+        'title',
+        'excerpt',
+        'content',
+        'date_start',
+        'date_end',
+        'url_site'
+    ];
 
     public function tags() {
         return $this->belongsToMany('App\Tag');
@@ -15,7 +24,10 @@ class Post extends Model {
         return $this->hasMany('App\Comment');
     }
 
-    /*public function getDateStartAttribute($date) {
-        return Carbon::parse($date)->format
-    }*/
+    public function setSlugAttribute($value) {
+        $value = str_slug($value);
+        $countSlug = count(Post::all()->where('slug', $value));
+
+        $this->attributes['slug'] = $countSlug > 0 ? $value . '-' . ($countSlug + 1) : $value;
+    }
 }

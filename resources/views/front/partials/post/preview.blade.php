@@ -1,13 +1,13 @@
 <h3>
-    <a href="{{ url('post', $post->id) }}">{{ $post->title }}</a>
+    <a href="{{ url('post', $post->slug) }}">{{ $post->title }}</a>
 </h3>
 
 <p>
     {!! MyHtml::thumb(url('upload', $post->thumbnail_link), $post->slug) !!}
-        <span class="txt-thumbnail">
-            {{ $post->excerpt }}
-            ... <a href="{{ url('post', $post->id) }}">lire la suite</a>
-        </span>
+    <span class="txt-thumbnail">
+        {{ $post->excerpt }}
+        ... <a href="{{ url('post', $post->slug) }}">lire la suite</a>
+    </span>
 </p>
 
 <p class="url-site">

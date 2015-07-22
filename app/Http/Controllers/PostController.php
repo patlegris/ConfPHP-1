@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Post;
+use App\Tag;
+use Auth;
+use Folklore\Image\Facades\Image;
 use Illuminate\Http\Request;
 use Response;
 
@@ -24,7 +27,9 @@ class PostController extends Controller {
      * @return Response
      */
     public function create() {
-        return view('dashboard.createPost');
+        $tags = Tag::all();
+
+        return view('dashboard.createPost', compact('tags'));
     }
 
     /**
@@ -34,7 +39,29 @@ class PostController extends Controller {
      * @return Response
      */
     public function store(Request $request) {
-        //
+        $params = array_merge(
+            $request->all(),
+            ['user_id' => Auth::user()->id]
+        );
+
+        $post = Post::create($params);
+        $post->slug = $request->input('title');
+        $post->tags()->attach($params['tags']);
+
+        if ($request->hasFile('thumbnail_link')) {
+            $file = $request->file('thumbnail_link');
+            $ext = $file->getClientOriginalExtension();
+
+            $rand_name = str_random(12) . '.' . $ext;
+
+            Image::make($file->getRealPath(), [
+                'width'  => 200,
+                'height' => 200
+            ])->save('upload/thumb-' . $rand_name);
+
+            $post->thumbnail_link = 'thumb-' . $rand_name;
+            $post->save();
+        }
     }
 
     /**

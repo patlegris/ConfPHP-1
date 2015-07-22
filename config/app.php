@@ -138,6 +138,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         Illuminate\Html\HtmlServiceProvider::class,
+        Folklore\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -201,6 +202,7 @@ return [
 
         'MyHtml'    => App\Facades\MyHtmlFacade::class,
         'Active'    => App\Facades\ActiveFacade::class,
+        'Image'     => Folklore\Image\Facades\Image::class,
     ],
 
 ];
