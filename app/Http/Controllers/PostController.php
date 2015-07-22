@@ -24,7 +24,7 @@ class PostController extends Controller {
      * @return Response
      */
     public function create() {
-
+        return view('dashboard.createPost');
     }
 
     /**
@@ -49,7 +49,7 @@ class PostController extends Controller {
         if (!$post = Post::all()->where('slug', $id)->first())
             $post = Post::find((int)$id);
 
-        return view('front.show', compact('post'));
+        return view('front.showPost', compact('post'));
     }
 
     /**

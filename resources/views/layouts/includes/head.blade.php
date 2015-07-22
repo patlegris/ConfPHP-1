@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/yeti/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('/css/jquery.datetimepicker.css') }}">
 <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 

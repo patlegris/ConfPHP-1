@@ -5,6 +5,13 @@ $(function () {
 
     if (navbar = $("#navbar-top").offset()) var navbarOffsetTop = navbar.top;
 
+    $("[name=date_start], [name=date_end]").datetimepicker({
+        lang: "fr",
+        onChangeDateTime: function (dp, $input) {
+            $input.attr("value", $input.val() + ":00");
+        }
+    });
+
     $(document).on("scroll", function (e) {
         if ($(this).scrollTop() > navbarOffsetTop) {
             $("#navbar-top").addClass("navbar-fixed-top");

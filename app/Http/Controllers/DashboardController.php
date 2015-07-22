@@ -7,10 +7,18 @@ use App\Post;
 
 class DashboardController extends Controller {
 
-    public function index() {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
+    public function indexPost() {
         $posts = Post::all()
             ->sortByDesc('date_start');
 
-        return view('dashboard.index', compact('posts'));
+        return view('dashboard.indexPost', compact('posts'));
+    }
+
+    public function createPost() {
+        return view('dashboard.createPost');
     }
 }

@@ -14,14 +14,21 @@
 /*
  * Front routes
  */
-Route::get('/', 'FrontController@index');
+Route::get('/', 'FrontController@indexPost');
 Route::get('about', 'FrontController@about');
 Route::get('contact', 'FrontController@contact');
 
 /*
+ * Auth routes
+ */
+Route::get('login', 'Auth\AuthController@getLogin');
+Route::post('login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+/*
  * Dashboard routes
  */
-Route::get('dashboard', 'DashboardController@index');
+Route::get('dashboard', 'DashboardController@indexPost');
 
 /*
  * Resource routes

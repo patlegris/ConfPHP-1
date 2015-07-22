@@ -44,6 +44,10 @@ section button {
     width: 100%;
 }
 
+.well {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
 /* ==========================================================================
    Header
    ========================================================================== */
@@ -126,6 +130,7 @@ aside.fixed a {
     color: #275181;
     text-decoration: none;
     padding: 15px;
+    margin-bottom: 1px;
 }
 
 aside.fixed a:hover {
@@ -157,7 +162,7 @@ footer ul a:first-letter {
     padding: 40px 0;
 }
 
-.date {
+article .date {
     padding: 5px;
     display: inline-block;
     text-transform: uppercase;
@@ -235,4 +240,8 @@ footer ul a:first-letter {
 
 .modal-backdrop {
     z-index: 0;
+}
+
+[name*=date_] {
+    cursor: pointer;
 }

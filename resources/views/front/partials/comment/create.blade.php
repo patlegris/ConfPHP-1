@@ -6,7 +6,7 @@
 {!! Form::hidden('post_id', $post->id) !!}
 
 <div class="form-group">
-    {!! Form::label('email', 'Email', ['class' => 'col-sm-2 control-label']) !!}
+    {!! Form::label('email', 'Email', ['class' => 'col-lg-2 control-label']) !!}
     <div class="col-sm-10">
         {!! Form::email('email', '', ['class' => 'form-control']) !!}
         @foreach($errors->get('email') as $message)
@@ -16,7 +16,7 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('message', 'Message', ['class' => 'col-sm-2 control-label']) !!}
+    {!! Form::label('message', 'Message', ['class' => 'col-lg-2 control-label']) !!}
     <div class="col-sm-10">
         {!! Form::textarea('message', '', ['class' => 'form-control']) !!}
         @foreach($errors->get('message') as $message)

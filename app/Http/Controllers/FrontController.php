@@ -7,12 +7,12 @@ use App\Post;
 
 class FrontController extends Controller {
 
-    public function index() {
+    public function indexPost() {
         $posts = Post::all()
             ->sortByDesc('date_start')
             ->where('status', 'publish');
 
-        return view('front.index', compact('posts'));
+        return view('front.indexPost', compact('posts'));
     }
 
     public function about() {
