@@ -25,7 +25,10 @@ class MyHtml {
     }
 
     public function thumb($href, $alt = '') {
-        return '<img src="' . $href . '" alt="' . $alt . '-image" class="img-thumbnail" />';
+        if ($href)
+            return '<img src="' . url('upload', $href) . '" alt="' . $alt . '-image" class="img-thumbnail" />';
+        else
+            return '';
     }
 
 }

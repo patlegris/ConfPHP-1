@@ -7,6 +7,7 @@ $(function () {
 
     $("[name=date_start], [name=date_end]").datetimepicker({
         lang: "fr",
+        format: 'Y-m-d H:i:s',
         onChangeDateTime: function (dp, $input) {
             $input.attr("value", $input.val() + ":00");
         }
@@ -44,7 +45,7 @@ $(function () {
                     $(".loader").fadeOut(300, function () {
                         currentForm = undefined;
                         $("#modal-delete-post").modal("hide");
-                        showFlash(data);
+                        showFlashJs(data);
                     });
                 },
                 error: function (resultat, statut, erreur) {
@@ -80,7 +81,7 @@ $(function () {
 
                     loader.fadeOut(300, function () {
                         modal.modal("hide");
-                        showFlash(data.message);
+                        showFlashJs(data.message);
                     });
                 },
 
@@ -96,12 +97,12 @@ $(function () {
         currentForm = $(this);
     });
 
-    $("#flash").on("mousedown", function () {
+    $("#flash-js, #flash-php").on("mousedown", function () {
         $(this).stop().fadeOut(0);
     });
 
-    function showFlash(message) {
-        $("#flash")
+    function showFlashJs(message) {
+        $("#flash-js")
             .stop()
             .hide(0)
             .html('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> ' + message)
@@ -109,4 +110,14 @@ $(function () {
                 $(this).fadeOut(5000);
             });
     }
+
+    if ($("#flash-php").html().trim() !== '') {
+        $("#flash-php")
+            .stop()
+            .hide(0)
+            .slideDown(500, function () {
+                $(this).fadeOut(5000);
+            });
+    }
+
 });

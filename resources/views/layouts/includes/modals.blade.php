@@ -36,4 +36,10 @@
     </div>
 </div>
 
-<div id="flash"></div>
+<div id="flash-js"></div>
+<div id="flash-php">
+    @if(Session::has('message'))
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        {{ Session::get('message') }}
+    @endif
+</div>

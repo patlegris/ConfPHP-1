@@ -3,7 +3,7 @@
 </h3>
 
 <p>
-    {!! MyHtml::thumb(url('upload', $post->thumbnail_link), $post->slug) !!}
+    {!! MyHtml::thumb($post->thumbnail_link, $post->slug) !!}
     {{ $post->content }}
 </p>
 

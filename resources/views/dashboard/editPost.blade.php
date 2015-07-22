@@ -6,11 +6,11 @@
 
     <section>
         <div class="text-center container-fluid">
-            <h1>Ajouter une conférence</h1>
+            <h1>Modifier une conférence</h1>
         </div>
 
         <div class="container-fluid">
-            @include('dashboard.partials.post.create')
+            @include('dashboard.partials.post.edit')
         </div>
     </section>
 

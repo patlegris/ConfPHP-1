@@ -3,7 +3,7 @@
 </td>
 
 <td>
-    {{ $post->title }}
+    {!! MyHtml::link($post->title, 'post/' . $post->id . '/edit') !!}
 </td>
 
 <td>

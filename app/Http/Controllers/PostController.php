@@ -35,24 +35,23 @@ class PostController extends Controller {
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Requests\StorePostFormRequest|Request $request
      * @return Response
      */
-    public function store(Request $request) {
-        $params = array_merge(
-            $request->all(),
-            ['user_id' => Auth::user()->id]
-        );
+    public function store(Requests\StorePostFormRequest $request) {
+        $params = $request->all();
+        $params['user_id'] = Auth::user()->id;
 
         $post = Post::create($params);
-        $post->slug = $request->input('title');
+
+        $post->slug = $params['title'];
         $post->tags()->attach($params['tags']);
 
         if ($request->hasFile('thumbnail_link')) {
             $file = $request->file('thumbnail_link');
             $ext = $file->getClientOriginalExtension();
 
-            $rand_name = str_random(12) . '.' . $ext;
+            $rand_name = $params['user_id'] . '.' . $ext;
 
             Image::make($file->getRealPath(), [
                 'width'  => 200,
@@ -60,8 +59,11 @@ class PostController extends Controller {
             ])->save('upload/thumb-' . $rand_name);
 
             $post->thumbnail_link = 'thumb-' . $rand_name;
-            $post->save();
         }
+
+        $post->save();
+
+        return redirect('dashboard')->with('message', 'Conférence créée.');
     }
 
     /**
@@ -73,7 +75,7 @@ class PostController extends Controller {
      * @internal param Request $request
      */
     public function show($id) {
-        if (!$post = Post::all()->where('slug', $id)->first())
+        if (!$post = Post::where('slug', $id)->first())
             $post = Post::find((int)$id);
 
         return view('front.showPost', compact('post'));
@@ -86,18 +88,49 @@ class PostController extends Controller {
      * @return Response
      */
     public function edit($id) {
+        $post = Post::find((int)$id);
+        $tags = Tag::all();
 
+        return view('dashboard.editPost', compact('post', 'tags'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
+     * @param Requests\StorePostFormRequest|Request $request
      * @param  int $id
      * @return Response
      */
-    public function update(Request $request, $id) {
-        //
+    public function update(Requests\StorePostFormRequest $request, $id) {
+        $post = Post::find($id);
+
+        $params = $request->all();
+        $params['user_id'] = Auth::user()->id;
+
+        $post->tags()->detach();
+
+        $post->update($params);
+
+        $post->tags()->attach($request->input('tags'));
+        $post->slug = $params['title'];
+
+        if ($request->hasFile('thumbnail_link')) {
+            $file = $request->file('thumbnail_link');
+            $ext = $file->getClientOriginalExtension();
+
+            $rand_name = $params['user_id'] . '.' . $ext;
+
+            Image::make($file->getRealPath(), [
+                'width'  => 200,
+                'height' => 200
+            ])->save('upload/thumb-' . $rand_name);
+
+            $post->thumbnail_link = 'thumb-' . $rand_name;
+        }
+
+        $post->save();
+
+        return redirect('dashboard')->with('message', 'Conférence modifiée');
     }
 
     public function updateStatus(Request $request, $id) {

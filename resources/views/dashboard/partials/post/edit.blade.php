@@ -1,4 +1,4 @@
-{!! Form::open(['url' => 'post', 'files' => true, 'class' => 'form-horizontal']) !!}
+{!! Form::open(['method' => 'PUT', 'url' => 'post/' . $post->id, 'files' => true, 'class' => 'form-horizontal']) !!}
 
 <div class="form-group">
     <div class="col-lg-offset-2 col-lg-1">
@@ -9,7 +9,8 @@
 <div class="form-group">
     {!! Form::label('title', 'Titre (*)', ['class' => 'col-lg-offset-2 col-lg-1 control-label']) !!}
     <div class="col-lg-7">
-        {!! Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Titre de la conférence']) !!}
+        {!! Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'Titre de la conférence'])
+        !!}
         @foreach($errors->get('title') as $message)
             <div class="text-danger text"><em>{{ $message }}</em></div>
         @endforeach
@@ -22,7 +23,8 @@
         <div class="input-group">
             <div class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
             <input readonly name="date_start" type="text" class="form-control" style="background: #fff;"
-                   value="{{ old('date_start') }}" placeholder="Cliquez pour saisir une date">
+                   value="{{ old('date_start') ? old('date_start') : $post->date_start }}"
+                   placeholder="Cliquez pour saisir une date">
         </div>
         @foreach($errors->get('date_start') as $message)
             <div class="text-danger"><em>{{ $message }}</em></div>
@@ -36,7 +38,8 @@
         <div class="input-group">
             <div class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
             <input readonly name="date_end" type="text" class="form-control" style="background: #fff;"
-                   value="{{ old('date_end') }}" placeholder="Cliquez pour saisir une date">
+                   value="{{ old('date_end') ? old('date_end') : $post->date_end }}"
+                   placeholder="Cliquez pour saisir une date">
         </div>
         @foreach($errors->get('date_end') as $message)
             <div class="text-danger"><em>{{ $message }}</em></div>
@@ -47,7 +50,8 @@
 <div class="form-group">
     {!! Form::label('url_site', 'Site web', ['class' => 'col-lg-offset-2 col-lg-1 control-label']) !!}
     <div class="col-lg-7">
-        {!! Form::text('url_site', '', ['class' => 'form-control', 'placeholder' => 'http://www.my-conference.com']) !!}
+        {!! Form::text('url_site', $post->url_site, ['class' => 'form-control', 'placeholder' =>
+        'http://www.my-conference.com']) !!}
         @foreach($errors->get('url_site') as $message)
             <div class="text-danger"><em>{{ $message }}</em></div>
         @endforeach
@@ -57,7 +61,7 @@
 <div class="form-group">
     {!! Form::label('excerpt', 'Résumé (*)', ['class' => 'col-lg-offset-2 col-lg-1 control-label']) !!}
     <div class="col-lg-7">
-        {!! Form::text('excerpt', '', ['class' => 'form-control', 'maxlength' => '60', 'placeholder' => 'Résumé de la conférence (60 caractères max)']) !!}
+        {!! Form::text('excerpt', $post->excerpt, ['class' => 'form-control', 'maxlength' => '60', 'placeholder' => 'Résumé de la conférence (60 caractères max)']) !!}
         @foreach($errors->get('excerpt') as $message)
             <div class="text-danger"><em>{{ $message }}</em></div>
         @endforeach
@@ -67,8 +71,8 @@
 <div class="form-group">
     {!! Form::label('content', 'Description (*)', ['class' => 'col-lg-offset-2 col-lg-1 control-label']) !!}
     <div class="col-lg-7">
-        {!! Form::textarea('content', '', ['class' => 'form-control', 'placeholder' => 'Description de la conférence'])
-        !!}
+        {!! Form::textarea('content', $post->content, ['class' => 'form-control', 'placeholder' => 'Description de la
+        conférence']) !!}
         @foreach($errors->get('content') as $message)
             <div class="text-danger"><em>{{ $message }}</em></div>
         @endforeach
@@ -81,7 +85,7 @@
         @foreach($tags as $tag)
             <div class="checkbox">
                 <label>
-                    {!! Form::checkbox('tags[]', $tag->id) !!}
+                    {!! Form::checkbox('tags[]', $tag->id, $post->tags->where('id', $tag->id)->count() != 0) !!}
                     {{ $tag->name }}
                 </label>
             </div>
@@ -103,7 +107,7 @@
 
 <div class="form-group">
     <div class="col-lg-offset-9 col-lg-1">
-        {!! Form::submit('Créer', ['class' => 'form-control btn btn-success']) !!}
+        {!! Form::submit('Modifier', ['class' => 'form-control btn btn-success']) !!}
     </div>
 </div>
 {!! Form::close() !!}

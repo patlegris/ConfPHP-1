@@ -2,18 +2,15 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
+class StorePostFormRequest extends Request {
 
-class StorePostFormRequest extends Request
-{
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize()
-    {
-        return false;
+    public function authorize() {
+        return true;
     }
 
     /**
@@ -21,10 +18,15 @@ class StorePostFormRequest extends Request
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            //
+            'title'          => 'required',
+            'date_start'     => 'required',
+            'date_end'       => 'required',
+            'url_site'       => 'url',
+            'excerpt'        => 'required|max:60',
+            'content'        => 'required',
+            'thumbnail_link' => 'image'
         ];
     }
 }

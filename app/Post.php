@@ -26,8 +26,12 @@ class Post extends Model {
 
     public function setSlugAttribute($value) {
         $value = str_slug($value);
-        $countSlug = count(Post::all()->where('slug', $value));
+        $countSlug = Post::isSlugUnique($value);
 
-        $this->attributes['slug'] = $countSlug > 0 ? $value . '-' . ($countSlug + 1) : $value;
+        $this->attributes['slug'] = is_int($countSlug) ? $value . '-' . ($countSlug + 1) : $value;
+    }
+
+    public function scopeIsSlugUnique($query, $val) {
+        return count($query->where('slug', 'LIKE', "$val%")->get());
     }
 }
