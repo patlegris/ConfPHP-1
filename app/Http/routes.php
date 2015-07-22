@@ -33,10 +33,10 @@ Route::get('dashboard', 'DashboardController@indexPost');
 /*
  * Resource routes
  */
-Route::resource('post', 'PostController');
+Route::resource('conference', 'PostController');
 Route::resource('comment', 'CommentController');
 
 /*
  * Other specific routes
  */
-Route::put('post/{id}/status', 'PostController@updateStatus');
+Route::put('conference/{id}/status', 'PostController@updateStatus');

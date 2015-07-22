@@ -5,8 +5,18 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ url('/') }}">retour au site</a></li>
-                <li><a href="{{ url('auth/logout') }}">se déconnecter</a></li>
+                <li>
+                    <a href="{{ url('/') }}">
+                        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                        Retour au site
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('auth/logout') }}">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        Se déconnecter
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

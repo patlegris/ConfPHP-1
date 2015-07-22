@@ -1,12 +1,12 @@
 <h3>
-    <a href="{{ url('post', $post->slug) }}">{{ $post->title }}</a>
+    {!! MyHtml::link($post->title, url('conference', $post->slug)) !!}
 </h3>
 
 <p>
     {!! MyHtml::thumb($post->thumbnail_link, $post->slug) !!}
     <span class="txt-thumbnail">
         {{ $post->excerpt }}
-        ... <a href="{{ url('post', $post->slug) }}">lire la suite</a>
+        ... {!! MyHtml::link('lire la suite', url('conference', $post->slug)) !!}
     </span>
 </p>
 

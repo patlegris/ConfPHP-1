@@ -98,11 +98,6 @@ header h4 {
     font-family: "Podkova", serif;
 }
 
-nav ul a:first-letter,
-aside ul a:first-letter {
-    text-transform: uppercase;
-}
-
 header ul a:hover {
     color: #285b8c;
 }
@@ -162,9 +157,6 @@ aside.fixed a.active {
 
 footer .navbar {
     margin: 0;
-}
-footer ul a:first-letter {
-    text-transform: uppercase;
 }
 
 /* ==========================================================================

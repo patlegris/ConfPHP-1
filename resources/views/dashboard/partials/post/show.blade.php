@@ -3,7 +3,7 @@
 </td>
 
 <td>
-    {!! MyHtml::link($post->title, 'post/' . $post->id . '/edit') !!}
+    {!! MyHtml::link($post->title, 'conference/' . $post->id . '/edit') !!}
 </td>
 
 <td>
@@ -25,7 +25,7 @@
 </td>
 
 <td>
-    {!! Form::open(['id' => $post->id, 'class' => 'status', 'url' => 'post/' . $post->id . '/status', 'method' => 'PUT']) !!}
+    {!! Form::open(['id' => $post->id, 'class' => 'status', 'url' => 'conference/' . $post->id . '/status', 'method' => 'PUT']) !!}
     <button data-toggle="modal"
             data-target="#modal-change-status-post"
             class="btn btn-warning">
@@ -35,7 +35,7 @@
 </td>
 
 <td class="text-center">
-    {!! Form::open(['class' => 'delete', 'url' => 'post/' . $post->id, 'method' => 'DELETE']) !!}
+    {!! Form::open(['class' => 'delete', 'url' => 'conference/' . $post->id, 'method' => 'DELETE']) !!}
     <button data-toggle="modal"
             data-target="#modal-delete-post"
             class="btn btn-danger">

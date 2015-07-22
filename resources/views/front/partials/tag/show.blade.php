@@ -1,1 +1,1 @@
-<a href="#">{{ $tag->name }}</a>
+{!! MyHtml::link($tag->name, '#') !!}
