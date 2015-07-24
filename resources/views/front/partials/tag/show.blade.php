@@ -1,1 +1,1 @@
-{!! MyHtml::link($tag->name, '#') !!}
+{!! MyHtml::link($tag->name, '#') !!}@if($tags[count($tags) - 1] != $tag), @endif

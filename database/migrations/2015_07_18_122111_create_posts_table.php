@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration {
             $table->dateTime('date_end');
             $table->string('thumbnail_link');
             $table->string('url_site');
+            $table->integer('count_comments')->default(0);
             $table->enum('status', ['publish', 'unpublish'])->default('publish');
 
             $table->softDeletes();

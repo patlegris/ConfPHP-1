@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c53b4666d2f27c4c23dc7a1f374a2435",
+    "hash": "e1a814dd2071b0049c6b4651315b66f7",
     "packages": [
         {
             "name": "bkwld/croppa",
@@ -51,6 +51,45 @@
             ],
             "description": "Image thumbnail creation through specially formatted URLs for Laravel",
             "time": "2015-06-30 20:40:02"
+        },
+        {
+            "name": "captcha-com/captcha",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "http://git.captcha.com/botdetect-php-captcha-library.git",
+                "reference": "98bb9c86cd0d934abe7a194c6bd201174bae1845"
+            },
+            "require": {
+                "php": ">=5.2.1"
+            },
+            "suggest": {
+                "captcha-com/cakephp-captcha": "BotDetect 3 PHP Captcha integration for the CakePHP framework.",
+                "captcha-com/laravel-captcha": "BotDetect 3 PHP Captcha integration for the Laravel framework."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Commercial"
+            ],
+            "authors": [
+                {
+                    "name": "BotDetect Captcha",
+                    "email": "botdetect.support@captcha.com",
+                    "homepage": "http://captcha.com/php-captcha.html"
+                }
+            ],
+            "description": "BotDetect 3 PHP Captcha Free composer package.",
+            "homepage": "http://captcha.com/php-captcha.html",
+            "keywords": [
+                "captcha"
+            ],
+            "time": "2015-04-07 10:43:30"
         },
         {
             "name": "classpreloader/classpreloader",
