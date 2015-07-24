@@ -18,14 +18,6 @@
                     </a>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="{{ Active::check('login') }}">
-                    <a href="{{ url('dashboard') }}">
-                        <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-                        Administration
-                    </a>
-                </li>
-            </ul>
         </div>
     </div>
 </nav>

@@ -7,7 +7,7 @@
 
 <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/yeti/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('/css/jquery.datetimepicker.css') }}">
-<link rel="stylesheet" href="{{ asset('/css/main.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/app.css') }}">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <script src="{{ asset('/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
