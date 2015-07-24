@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'admin@phpconf.com', 'name' => 'admin'],
+    'from' => ['address' => 'admin@confphp.com', 'name' => 'Admin ConfPHP'],
 
     /*
     |--------------------------------------------------------------------------
@@ -120,10 +120,5 @@ return [
     */
 
     'pretend' => false,
-
-    'to' => [
-        'address' => 'clementdouin21@gmail.com',
-        'name' => 'ConfPHP webmaster mail'
-    ],
 
 ];

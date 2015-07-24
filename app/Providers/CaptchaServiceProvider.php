@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Helpers\MyHtml;
+use App\Helpers\Captcha;
 use Illuminate\Support\ServiceProvider;
 
-class MyHtmlServiceProvider extends ServiceProvider {
+class CaptchaServiceProvider extends ServiceProvider {
 
     /**
      * Bootstrap the application services.
@@ -22,8 +22,8 @@ class MyHtmlServiceProvider extends ServiceProvider {
      * @return void
      */
     public function register() {
-        $this->app->singleton('myhtml', function () {
-            return new MyHtml;
+        $this->app->singleton('captcha', function () {
+            return new Captcha;
         });
     }
 }

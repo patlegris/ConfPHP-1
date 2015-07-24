@@ -21,9 +21,9 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('captcha', 'Calculer la somme ' . Captcha::generate(), ['class' => 'col-lg-2 control-label']) !!}
+                        {!! Form::label('captcha', 'Calculer ' . Captcha::generate(), ['class' => 'col-lg-2 control-label']) !!}
                         <div class="col-sm-10">
-                            {!! Form::text('captcha', '', ['class' => 'form-control']) !!}
+                            <input name="captcha" type="number" id="captcha" class="form-control">
                             @foreach($errors->get('captcha') as $message)
                                 <div class="text-danger text"><em>{{ $message }}</em></div>
                             @endforeach
@@ -31,10 +31,10 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('message', 'Message', ['class' => 'col-lg-2 control-label']) !!}
+                        {!! Form::label('content', 'Message', ['class' => 'col-lg-2 control-label']) !!}
                         <div class="col-sm-10">
-                            {!! Form::textarea('message', '', ['class' => 'form-control']) !!}
-                            @foreach($errors->get('message') as $message)
+                            {!! Form::textarea('content', '', ['class' => 'form-control']) !!}
+                            @foreach($errors->get('content') as $message)
                                 <div class="text-danger text"><em>{{ $message }}</em></div>
                             @endforeach
                         </div>

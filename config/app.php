@@ -148,6 +148,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\MyHtmlServiceProvider::class,
         App\Providers\ActiveServiceProvider::class,
+        App\Providers\CaptchaServiceProvider::class,
 
     ],
 
@@ -202,6 +203,7 @@ return [
 
         'MyHtml'    => App\Facades\MyHtmlFacade::class,
         'Active'    => App\Facades\ActiveFacade::class,
+        'Captcha'   => App\Facades\CaptchaFacade::class,
         'Image'     => Folklore\Image\Facades\Image::class,
     ],
 

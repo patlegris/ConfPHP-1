@@ -2,16 +2,19 @@
 
 namespace App\Helpers;
 
+use Session;
+
 class Captcha {
-    private $a, $b;
 
     public function generate() {
-        $this->a = $this->getRandom();
-        $this->b = $this->getRandom();
+        Session::set('number1', $this->getRandom());
+        Session::set('number2', $this->getRandom());
+
+        return Session::get('number1') . ' + ' . Session::get('number2');
     }
 
-    public function check($somme) {
-        return ($somme == $this->a + $this->b);
+    public function operate() {
+        return Session::get('number1') + Session::get('number2');
     }
 
     private function getRandom() {

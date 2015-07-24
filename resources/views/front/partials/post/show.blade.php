@@ -13,7 +13,7 @@
 
 <p class="keyword">
     Mots clefs:
-    @foreach($post->tags as $tag)
+    @foreach($tags = $post->tags as $tag)
         @include('front.partials.tag.show')
     @endforeach
 </p>

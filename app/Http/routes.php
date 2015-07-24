@@ -15,8 +15,9 @@
  * Front routes
  */
 Route::get('/', 'FrontController@indexPost');
-Route::get('about', 'FrontController@about');
-Route::get('contact', 'FrontController@contact');
+Route::get('about', 'FrontController@getAbout');
+Route::get('contact', 'FrontController@getContact');
+Route::post('contact', 'FrontController@postContact');
 
 /*
  * Auth routes

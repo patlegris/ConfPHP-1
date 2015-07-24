@@ -1,11 +1,12 @@
 <?php
+
 namespace App\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class MyHtmlFacade extends Facade {
+class CaptchaFacade extends Facade {
 
     protected static function getFacadeAccessor() {
-        return 'myhtml';
+        return 'captcha';
     }
 }
