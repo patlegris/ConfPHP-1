@@ -11,7 +11,7 @@
             <div class="modal-footer text-right">
                 <div class="row">
                     <div class="col-lg-6 text-left">
-                        <img class="loader" src="{{ url('/logos/loader.gif') }}" alt="Loader" />
+                        <img class="loader" src="{{ url('/assets/img/loader.gif') }}" alt="Loader" />
                     </div>
                     <div class="col-lg-6 text-right">
                         <button type="button" class="btn btn-default" data-delete-post>Oui</button>
@@ -30,7 +30,7 @@
                 <h4>Veuillez patienter</h4>
             </div>
             <div class="modal-body text-center">
-                <img class="loader" src="{{ url('/logos/loader.gif') }}" alt="Loader" />
+                <img class="loader" src="{{ url('/assets/img/loader.gif') }}" alt="Loader" />
             </div>
         </div>
     </div>

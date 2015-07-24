@@ -41,21 +41,9 @@ article .date {
     transform: skew(-9deg) rotate(-1deg);
 }
 
-section {
-    margin: 70px 0 80px 275px;
-}
 
-section h1 {
-    display: inline-block;
-}
 
-section button {
-    width: 100%;
-}
 
-.well {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
 
 h1 {
     margin-bottom: 50px;
@@ -155,9 +143,7 @@ aside.fixed a.active {
    Footer
    ========================================================================== */
 
-footer .navbar {
-    margin: 0;
-}
+
 
 /* ==========================================================================
    Helpers
@@ -194,9 +180,7 @@ footer .navbar {
     z-index: 4;
 }
 
-.loader {
-    display: none;
-}
+
 
 /*#loader {
     position: fixed;
@@ -218,6 +202,9 @@ footer .navbar {
     background: url(/logos/loader.gif) center no-repeat ;
     z-index: 9;
 }*/
+.loader {
+    display: none;
+}
 
 #flash-js,
 #flash-php {
@@ -239,6 +226,3 @@ footer .navbar {
     z-index: 0;
 }
 
-[name*=date_] {
-    cursor: pointer;
-}

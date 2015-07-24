@@ -1,25 +1,25 @@
 header 
   background-image: linear-gradient(to bottom, $blue-light-1 0, $blue-light-2 100%)
 
+  a,
+  a:hover,
+  a:focus
+    color: $blue-medium-1
+
   h1
     a
       font-size: 5rem
-      font-family: "Podkova", serif
+      font-family: $podkova
       font-weight: bold
-      text-decoration: none
-      color: $blue-medium-1
       text-shadow: 0 0 10px $white
-      transition: color 0.5s ease, text-shadow 0.5s ease
+      transition: color .5s ease, text-shadow .5s ease
 
-    a:hover
-      text-decoration: none
-      color: $blue-medium-2
+    a:hover,
+    a:focus
       text-shadow: 0 0 30px $white
+      text-decoration: none
 
   h4
     margin-bottom: 21px
     text-indent: 100px
     font-family: $podkova
-
-  ul a:hover
-    color: $blue-medium-2

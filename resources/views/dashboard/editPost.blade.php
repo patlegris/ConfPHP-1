@@ -4,7 +4,7 @@
     @include('dashboard.includes.menu')
     @include('dashboard.includes.sidebar')
 
-    <section>
+    <article class="dashboard">
         <div class="text-center container-fluid">
             <h1>Modifier une conférence</h1>
         </div>
@@ -12,6 +12,6 @@
         <div class="container-fluid">
             @include('dashboard.partials.post.edit')
         </div>
-    </section>
+    </article>
 
 @endsection

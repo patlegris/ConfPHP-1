@@ -2,6 +2,7 @@
 
 @section('body')
     @include('front.includes.header')
+
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
@@ -28,4 +29,6 @@
             </div>
         </div>
     </div>
+
+    @include('front.includes.footer')
 @endsection

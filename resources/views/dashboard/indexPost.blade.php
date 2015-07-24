@@ -4,7 +4,7 @@
     @include('dashboard.includes.menu')
     @include('dashboard.includes.sidebar')
 
-    <section>
+    <article class="dashboard">
         <h1>Dashboard</h1>
         <div class="container-fluid">
             <table class="table table-hover">
@@ -30,6 +30,6 @@
                 </tbody>
             </table>
         </div>
-    </section>
+    </article>
 
 @endsection

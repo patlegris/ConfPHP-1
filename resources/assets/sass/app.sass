@@ -1,6 +1,6 @@
-/* =============================================================
+/* ============================================================
    Fonts
- =============================================================== */
+   ============================================================
 
 @import url(http://fonts.googleapis.com/css?family=Cousine)
 @import url(http://fonts.googleapis.com/css?family=Podkova)
@@ -8,14 +8,15 @@
 $cousine: 'Cousine', serif
 $podkova: 'Podkova', serif
 
-/* =============================================================
+/* ============================================================
    Colors
- =============================================================== */
+   ============================================================
 
 $white: #ffffff
 $grey: #ecf0f1
 $red: #E66067
 $yellow: #F7911E
+$green: #3c9a5f
 
 $shadow: rgba(0, 0, 0, 0.2)
 
@@ -24,8 +25,15 @@ $blue-medium-2: #285b8c
 $blue-light-1: #2980b9
 $blue-light-2: #3498db
 
-/* =============================================================
-   Header
- =============================================================== */
+/* ============================================================
+   Imports
+   ============================================================
 
-@import 'header'
+@import 'reset'   // Format main tags
+
+@import 'header'  // Import header style
+@import 'aside'   // Import aside style
+@import 'article' // Import articles style
+@import 'footer'  // Import articles style
+
+@import 'helper'  // Helper classes

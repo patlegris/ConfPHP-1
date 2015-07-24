@@ -37,7 +37,7 @@ return [
     |
     */
     'src_dirs'                  => array(
-        public_path() . '/upload'
+        public_path() . '/assets/upload'
     ),
 
     /*

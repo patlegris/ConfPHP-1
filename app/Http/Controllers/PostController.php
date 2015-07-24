@@ -56,7 +56,7 @@ class PostController extends Controller {
             Image::make($file->getRealPath(), [
                 'width'  => 200,
                 'height' => 200
-            ])->save('upload/thumb-' . $rand_name);
+            ])->save('assets/upload/thumb-' . $rand_name);
 
             $post->thumbnail_link = 'thumb-' . $rand_name;
         }

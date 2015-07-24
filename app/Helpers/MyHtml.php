@@ -26,7 +26,7 @@ class MyHtml {
 
     public function thumb($href, $alt = '') {
         if ($href)
-            return '<img src="' . url('upload', $href) . '" alt="' . $alt . '-image" class="img-thumbnail" />';
+            return '<img src="' . url('assets/upload', $href) . '" alt="' . $alt . '-image" class="img-thumbnail" />';
         else
             return '';
     }

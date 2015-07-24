@@ -10,24 +10,33 @@
     </span>
 </p>
 
-<p class="url-site">
-    {!! MyHtml::link('Lien vers le site de la conférence', $post->url_site) !!}
-</p>
+@if($post->url_site)
+    <p>
+        {!! MyHtml::link('Lien vers le site de la conférence', $post->url_site) !!}
+    </p>
+@endif
 
-<p class="keyword">
-    Mots clefs:
-    @foreach($tags = $post->tags as $tag)
-        @include('front.partials.tag.show')
-    @endforeach
-</p>
+@if(count($post->tags) > 0)
+    <p>
+        Mots clefs:
+        @foreach($tags = $post->tags as $tag)
+            @include('front.partials.tag.show')
+        @endforeach
+    </p>
+@endif
 
-<p class="count-comment">
-    Nombre de commentaires :
+<p>
+    @if($post->count_comments)
+        Nombre de commentaires : {{ $post->count_comments }}
+    @else
+        Soyez le premier à laisser un commentaire !
+    @endif
 </p>
 
 <p class="date">
     début:
     <time datetime="{{ $post->date_start }}">{{ $post->date_start }}</time>
+    -
     fin:
     <time datetime="{{ $post->date_end }}">{{ $post->date_end }}</time>
 </p>
