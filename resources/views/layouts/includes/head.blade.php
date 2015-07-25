@@ -5,7 +5,5 @@
 <meta name="description" content="@yield('desc')">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="{{ asset('/assets/css/style.min.css') }}">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-<script src="{{ asset('/js/vendor/modernizr.min.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('/assets/css/style.min.css') }}">

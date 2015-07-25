@@ -1,6 +1,5 @@
 $(function () {
 
-    var deletePost = false;
     var currentForm;
 
     if (navbar = $("#navbar-top").offset()) var navbarOffsetTop = navbar.top;

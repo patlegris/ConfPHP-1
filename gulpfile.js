@@ -1,47 +1,44 @@
-var gulp      = require('gulp'),
-    sass      = require('gulp-sass'),
-    minify    = require('gulp-minify-css'),
-    concat    = require('gulp-concat'),
-    uglify    = require('gulp-uglify'),
-    rename    = require('gulp-rename');
+var gulp   = require('gulp'),
+    sass   = require('gulp-sass'),
+    minify = require('gulp-minify-css'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    rename = require('gulp-rename');
 
-path = {
-    'sass': 'resources/assets/style/app.sass',
-    'vendor': 'resources/assets/style/vendor/**/*.*'
+styles = {
+    'bootstrap': 'resources/assets/style/vendor/bootstrap.min.css',
+    'xdsoft': 'resources/assets/style/vendor/xdsoft-datetimepicker.css',
+    'app': 'resources/assets/style/app.sass',
+    'sass': 'resources/assets/style/**/*.sass'
 };
 
-gulp.task('css', function () {
-    return gulp.src([path.vendor, path.sass])
+scripts = {
+    'jquery': 'resources/assets/js/vendor/jquery-1.11.3.min.js',
+    'bootstrap': 'resources/assets/js/vendor/bootstrap.min.js',
+    'modernizr': 'resources/assets/js/vendor/modernizr.min.js',
+    'xdsoft': 'resources/assets/js/vendor/xdsoft-datetimepicker.js',
+    'analytics': 'resources/assets/js/vendor/google-analytics.js',
+    'app': 'resources/assets/js/app.js'
+};
+
+gulp.task('style', function () {
+    return gulp.src([styles.bootstrap, styles.xdsoft, styles.app])
         .pipe(sass({onError: console.error.bind(console, 'SASS ERROR')}))
         .pipe(minify())
         .pipe(concat('style.min.css'))
         .pipe(gulp.dest('public/assets/css'));
 });
 
-gulp.task('modernizr', function () {
-    return gulp.src('resources/assets/js/vendor/modernizr.min.js')
-        .pipe(gulp.dest('public/assets/js'));
-});
-
-
-gulp.task('js', function () {
-    return gulp.src(['resources/assets/js/vendor/jquery.min.js', 'resources/assets/js/vendor/bootstrap.min.js', 'resources/assets/js/vendor/xdsoft_datetimepicker.js', 'resources/assets/js/app.js'])
+gulp.task('script', function () {
+    return gulp.src([scripts.modernizr, scripts.jquery, scripts.bootstrap, scripts.xdsoft, scripts.app, scripts.analytics])
         .pipe(uglify())
         .pipe(concat('script.min.js'))
         .pipe(gulp.dest('public/assets/js'))
 });
 
-gulp.task('vendor', function () {
-    return gulp.src('./resources/assets/vendor/*.css')
-        .pipe(minify())
-        .pipe(rename({basename: 'main', suffix: '.min'}))
-        .pipe(gulp.dest('./public/assets/vendor'))
-});
-
 gulp.task('watch', function () {
-    gulp.watch(path.res.sass, ['sass']);
-    //gulp.watch(path.res.js, ['js']);
-    //gulp.watch('./resources/assets/vendor/*.css', ['boiler'])
+    gulp.watch(styles.sass, ['style']);
+    gulp.watch(scripts.app, ['script']);
 });
 
-gulp.task('makecss', ['sass', 'css', 'style']);
+gulp.task('default', ['style', 'script', 'watch']);
