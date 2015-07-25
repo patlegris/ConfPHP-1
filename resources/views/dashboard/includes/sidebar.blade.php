@@ -14,5 +14,12 @@
                 Ajouter une conférence
             </a>
         </li>
+        <li>
+            <a class="{{ Active::check('comment') }}"
+               href="{{ url('comment') }}">
+                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                Gestion des commentaires
+            </a>
+        </li>
     </ul>
 </aside>

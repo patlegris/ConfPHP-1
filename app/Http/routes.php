@@ -32,6 +32,8 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
  * Dashboard routes
  */
 Route::get('dashboard', 'DashboardController@indexPost');
+Route::get('sort-comment/{status}', 'DashboardController@getSortComment');
+
 
 /*
  * Resource routes
@@ -42,4 +44,8 @@ Route::resource('comment', 'CommentController');
 /*
  * Other specific routes
  */
+Route::get('validate-comment', 'CommentController@validateComment');
 Route::put('conference/{id}/status', 'PostController@updateStatus');
+Route::put('comment/{id}/publish', 'CommentController@putPublish');
+Route::put('comment/{id}/unpublish', 'CommentController@putUnpublish');
+Route::put('comment/{id}/spam', 'CommentController@putSpam');

@@ -23,7 +23,7 @@
 
                 <tbody>
                 @foreach($posts as $post)
-                    <tr id="{{ $post->id }}" class="{{ $post->status == 'publish' ? 'info' : 'success' }}">
+                    <tr id="{{ $post->id }}">
                         @include('dashboard.partials.post.show')
                     </tr>
                 @endforeach

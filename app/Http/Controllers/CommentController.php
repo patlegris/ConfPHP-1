@@ -15,7 +15,18 @@ class CommentController extends Controller {
      * @return Response
      */
     public function index() {
-        //
+        $comments = Comment::all()
+            ->sortByDesc('created_at');
+
+        return view('dashboard.indexComment', compact('comments'));
+    }
+
+    public function validateComment() {
+        $comments = Comment::all()
+            ->sortByDesc('created_at')
+            ->where('status', 'unpublish');
+
+        return view('dashboard.validateComment', compact('comments'));
     }
 
     /**
@@ -70,6 +81,45 @@ class CommentController extends Controller {
         //
     }
 
+    public function putPublish($id) {
+        $comment = Comment::find($id);
+
+        $comment->status = 'publish';
+        $comment->save();
+
+        return response()->json([
+            'html'    => view('dashboard.partials.comment.show', compact('comment'))->render(),
+            'message' => 'Statut du commentaire modifié (publish)',
+            'id'      => $comment->id
+        ]);
+    }
+
+    public function putSpam($id) {
+        $comment = Comment::find($id);
+
+        $comment->status = 'spam';
+        $comment->save();
+
+        return response()->json([
+            'html'    => view('dashboard.partials.comment.show', compact('comment'))->render(),
+            'message' => 'Statut du commentaire modifié (publish)',
+            'id'      => $comment->id
+        ]);
+    }
+
+    public function putUnpublish($id) {
+        $comment = Comment::find($id);
+
+        $comment->status = 'unpublish';
+        $comment->save();
+
+        return response()->json([
+            'html'    => view('dashboard.partials.comment.show', compact('comment'))->render(),
+            'message' => 'Statut du commentaire modifié (unpublish)',
+            'id'      => $comment->id
+        ]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -77,6 +127,8 @@ class CommentController extends Controller {
      * @return Response
      */
     public function destroy($id) {
-        //
+        Comment::destroy($id);
+
+        return 'Commentaire supprimé';
     }
 }

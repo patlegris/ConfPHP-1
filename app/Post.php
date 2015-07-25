@@ -51,12 +51,4 @@ class Post extends Model {
             ->sortByDesc('created_at')
             ->where('status', 'publish');
     }
-
-    public function scopeUnpublishComments($query) {
-        return $query
-            ->getModel()
-            ->comments
-            ->sortByDesc('created_at')
-            ->where('status', 'unpublish');
-    }
 }

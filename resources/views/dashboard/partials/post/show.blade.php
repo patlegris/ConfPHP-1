@@ -1,4 +1,4 @@
-<td>
+<td class="{{ $post->status == 'publish' ? 'success' : 'warning' }}">
     {{ $post->status }}
 </td>
 
@@ -27,7 +27,7 @@
 <td>
     {!! Form::open(['id' => $post->id, 'class' => 'status', 'url' => 'conference/' . $post->id . '/status', 'method' => 'PUT']) !!}
     <button data-toggle="modal"
-            data-target="#modal-change-status-post"
+            data-target="#modal-change-status"
             class="btn btn-warning">
         {{ $post->status == 'publish' ? 'Unpublish' : 'Publish' }}
     </button>
