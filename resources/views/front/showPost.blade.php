@@ -17,13 +17,14 @@
                 </article>
 
                 <article>
-                    @foreach($post->comments->sortByDesc('created_at') as $comment)
+                    @foreach($post->publishComments() as $comment)
                         <div class="comment well">
                             @include('front.partials.comment.show')
                         </div>
                     @endforeach
                 </article>
             </div>
+
             <div class="col-lg-3">
                 @include('front.includes.sidebar')
             </div>

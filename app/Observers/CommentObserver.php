@@ -4,9 +4,11 @@ namespace App\Observers;
 
 class CommentObserver {
 
-    public function created($comment) {
-        $comment->post->count_comments++;
-        $comment->post->save();
+    public function updated($comment) {
+        if ($comment->status == 'publish') {
+            $comment->post->count_comments++;
+            $comment->post->save();
+        }
 
         return true;
     }

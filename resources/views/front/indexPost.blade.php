@@ -14,6 +14,7 @@
                     </article>
                 @endforeach
             </div>
+
             <div class="col-lg-3">
                 @include('front.includes.sidebar')
             </div>

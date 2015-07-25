@@ -14,9 +14,11 @@
 /*
  * Front routes
  */
-Route::get('/', 'FrontController@indexPost');
+Route::get('/', 'FrontController@getHome');
 Route::get('about', 'FrontController@getAbout');
 Route::get('contact', 'FrontController@getContact');
+
+Route::post('search', 'FrontController@postSearch');
 Route::post('contact', 'FrontController@postContact');
 
 /*

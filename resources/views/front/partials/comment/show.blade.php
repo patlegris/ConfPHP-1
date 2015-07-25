@@ -12,7 +12,7 @@
 <div class="text-right">
     <small>
         <em>
-            <time datetime="{{ $comment->updated_at }}">{{ $comment->updated_at }}</time>
+            <time datetime="{{ $comment->created_at }}">{{ $comment->created_at }}</time>
         </em>
     </small>
 </div>

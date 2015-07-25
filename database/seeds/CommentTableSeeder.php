@@ -18,6 +18,7 @@ class CommentTableSeeder extends Seeder {
                 'email'      => 'lea@mail.com',
                 'message'    => 'Genial !',
                 'post_id'    => 1,
+                'status'     => 'publish',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -25,6 +26,7 @@ class CommentTableSeeder extends Seeder {
                 'email'      => 'eve@mail.com',
                 'message'    => 'Mais trop !',
                 'post_id'    => 1,
+                'status'     => 'publish',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -32,6 +34,7 @@ class CommentTableSeeder extends Seeder {
                 'email'      => 'tom@mail.com',
                 'message'    => 'Awesome !',
                 'post_id'    => 2,
+                'status'     => 'publish',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -39,6 +42,7 @@ class CommentTableSeeder extends Seeder {
                 'email'      => 'paul@mail.com',
                 'message'    => 'Mouai pas terrible',
                 'post_id'    => 3,
+                'status'     => 'publish',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -46,6 +50,7 @@ class CommentTableSeeder extends Seeder {
                 'email'      => 'sam@mail.com',
                 'message'    => 'J\'y suis allé c\'était ouf !',
                 'post_id'    => 3,
+                'status'     => 'publish',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -53,6 +58,7 @@ class CommentTableSeeder extends Seeder {
                 'email'      => 'neo@mail.com',
                 'message'    => 'Remboursééé !',
                 'post_id'    => 3,
+                'status'     => 'publish',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -60,6 +66,7 @@ class CommentTableSeeder extends Seeder {
                 'email'      => 'mat@mail.com',
                 'message'    => 'A voir',
                 'post_id'    => 4,
+                'status'     => 'publish',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],

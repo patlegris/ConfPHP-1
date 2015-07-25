@@ -17,12 +17,12 @@
 @endif
 
 @if(count($post->tags) > 0)
-    <p>
+    <div>
         Mots clefs:
         @foreach($tags = $post->tags as $tag)
             @include('front.partials.tag.show')
         @endforeach
-    </p>
+    </div>
 @endif
 
 <p>
@@ -34,9 +34,9 @@
 </p>
 
 <p class="date">
-    début:
+    début :
     <time datetime="{{ $post->date_start }}">{{ $post->date_start }}</time>
     -
-    fin:
+    fin :
     <time datetime="{{ $post->date_end }}">{{ $post->date_end }}</time>
 </p>

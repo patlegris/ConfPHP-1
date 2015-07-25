@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model {
@@ -33,5 +34,21 @@ class Post extends Model {
 
     public function scopeIsSlugUnique($query, $val) {
         return count($query->where('slug', 'LIKE', "$val%")->get());
+    }
+
+    public function getDateStartAttribute($date) {
+        return Carbon::parse($date)->formatLocalized('%e %B %Y, %H:%M');
+    }
+
+    public function getDateEndAttribute($date) {
+        return Carbon::parse($date)->formatLocalized('%e %B %Y, %H:%M');
+    }
+
+    public function scopePublishComments($query) {
+        return $query
+            ->getModel()
+            ->comments
+            ->sortByDesc('created_at')
+            ->where('status', 'publish');
     }
 }
