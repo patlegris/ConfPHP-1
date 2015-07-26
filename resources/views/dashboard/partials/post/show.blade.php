@@ -8,20 +8,20 @@
 
 <td>
     @foreach($tags = $post->tags as $tag)
-        @include('front.partials.tag.show')
+        @include('dashboard.partials.tag.show')
     @endforeach
 </td>
 
 <td>
-    <time datetime="{{ $post->date_start }}">{{ $post->date_start }}</time>
+    <time datetime="{{ $post->date_start }}">{{ $post->dateStart() }}</time>
 </td>
 
 <td>
-    <time datetime="{{ $post->date_end }}">{{ $post->date_end }}</time>
+    <time datetime="{{ $post->date_end }}">{{ $post->dateEnd() }}</time>
 </td>
 
 <td>
-    <time datetime="{{ $post->updated_at }}">{{ $post->updated_at }}</time>
+    <time datetime="{{ $post->updated_at }}">{{ $post->updatedAt() }}</time>
 </td>
 
 <td>

@@ -1,4 +1,4 @@
-{!! Form::open(['method' => 'PUT', 'url' => 'conference/' . $post->id, 'files' => true, 'class' => 'form-horizontal']) !!}
+{!! Form::open(['method' => 'PUT', 'url' => 'dashboard/conference/' . $post->id, 'files' => true, 'class' => 'form-horizontal']) !!}
 
 <div class="form-group">
     <div class="col-lg-offset-2 col-lg-1">

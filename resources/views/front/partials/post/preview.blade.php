@@ -1,12 +1,12 @@
 <h3>
-    {!! MyHtml::link($post->title, url('conference', $post->slug)) !!}
+    {!! MyHtml::link($post->title, url('conference', ($post->slug ? $post->slug : $post->id))) !!}
 </h3>
 
 <p>
     {!! MyHtml::thumb($post->thumbnail_link, $post->slug) !!}
     <span class="txt-thumbnail">
         {{ $post->excerpt }}
-        ... {!! MyHtml::link('lire la suite', url('conference', $post->slug)) !!}
+        ... {!! MyHtml::link('lire la suite', url('conference', ($post->slug ? $post->slug : $post->id))) !!}
     </span>
 </p>
 
@@ -35,8 +35,8 @@
 
 <p class="date">
     début :
-    <time datetime="{{ $post->date_start }}">{{ $post->date_start }}</time>
+    <time datetime="{{ $post->date_start }}">{{ $post->dateStart() }}</time>
     -
     fin :
-    <time datetime="{{ $post->date_end }}">{{ $post->date_end }}</time>
+    <time datetime="{{ $post->date_end }}">{{ $post->dateEnd() }}</time>
 </p>

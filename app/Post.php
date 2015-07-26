@@ -35,23 +35,16 @@ class Post extends Model {
         return $this->hasMany('App\Comment');
     }
 
-    public function setSlugAttribute($value) {
-        $value = str_slug($value);
-        $countSlug = Post::isSlugUnique($value);
-
-        $this->attributes['slug'] = is_int($countSlug) ? $value . '-' . ($countSlug + 1) : $value;
+    public function scopeDateStart($query) {
+        return Carbon::parse($query->getModel()->date_start)->formatLocalized('%e %b %Y, %Hh%M');
     }
 
-    public function scopeIsSlugUnique($query, $val) {
-        return count($query->where('slug', 'LIKE', "$val%")->get());
+    public function scopeDateEnd($query) {
+        return Carbon::parse($query->getModel()->date_end)->formatLocalized('%e %b %Y, %Hh%M');
     }
 
-    public function getDateStartAttribute($date) {
-        return Carbon::parse($date)->formatLocalized('%e %B %Y, %H:%M');
-    }
-
-    public function getDateEndAttribute($date) {
-        return Carbon::parse($date)->formatLocalized('%e %B %Y, %H:%M');
+    public function scopeUpdatedAt($query) {
+        return Carbon::parse($query->getModel()->updated_at)->formatLocalized('%e %b %Y, %Hh%M');
     }
 
     public function scopePublishComments($query) {

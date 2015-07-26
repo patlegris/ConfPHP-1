@@ -21,7 +21,7 @@ class UpdatePostFormRequest extends Request {
     public function rules() {
         return [
             'title'          => 'required',
-            'slug'           => 'unique:posts,slug,' . $this->segment(2),
+            'slug'           => 'unique:posts,slug,' . $this->segment(3),
             'date_start'     => 'required',
             'date_end'       => 'required',
             'url_site'       => 'url',

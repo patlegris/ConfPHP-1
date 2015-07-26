@@ -122,7 +122,7 @@ class PostController extends Controller {
 
         $post->save();
 
-        return redirect('dashboard')->with('message', 'Conférence modifiée');
+        return redirect('dashboard/conference')->with('message', 'Conférence modifiée');
     }
 
     /**

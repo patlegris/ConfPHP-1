@@ -24,8 +24,8 @@
 
 <p class="date">
     début :
-    <time datetime="{{ $post->date_start }}">{{ $post->date_start }}</time>
+    <time datetime="{{ $post->date_start }}">{{ $post->dateStart() }}</time>
     -
     fin :
-    <time datetime="{{ $post->date_end }}">{{ $post->date_end }}</time>
+    <time datetime="{{ $post->date_end }}">{{ $post->dateEnd() }}</time>
 </p>
