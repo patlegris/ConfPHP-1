@@ -39,7 +39,7 @@
                 {!! Form::close() !!}
             </div>
         @else
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 {!! Form::open(['id' => $comment->id, 'class' => 'status', 'url' => 'dashboard/comment/' . $comment->id .
                 '/publish', 'method' => 'PUT']) !!}
                 <button class="btn btn-success">

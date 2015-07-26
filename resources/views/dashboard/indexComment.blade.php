@@ -8,19 +8,19 @@
         <h1>Gestion des commentaires</h1>
 
         <p>
-            <button class="btn btn-default ajax"
+            <button class="btn btn-info ajax"
                     data-url="all-comment">
                 Tous
             </button>
             <button class="btn btn-default ajax"
+                    data-url="unpublish-comment">
+                Non-publiés
+            </button>
+            <button class="btn btn-success ajax"
                     data-url="publish-comment">
                 Publiés
             </button>
-            <button class="btn btn-default ajax"
-                    data-url="unpublish-comment">
-                Dé-publiés
-            </button>
-            <button class="btn btn-default ajax"
+            <button class="btn btn-warning ajax"
                     data-url="spam-comment">
                 Spams
             </button>

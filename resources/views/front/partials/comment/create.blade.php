@@ -2,7 +2,7 @@
     Laisser un commentaire
 </h3>
 
-{!! Form::open(['url' => 'comment', 'class' => 'form-horizontal']) !!}
+{!! Form::open(['url' => 'dashboard/comment', 'class' => 'form-horizontal']) !!}
 {!! Form::hidden('post_id', $post->id) !!}
 
 <div class="form-group">

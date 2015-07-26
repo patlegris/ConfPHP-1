@@ -1,6 +1,7 @@
 $(function () {
 
     var loader = $("#loader");
+    var flash = $("#flash");
     var currentForm;
 
     if (navbar = $("#navbar-top").offset()) var navbarOffsetTop = navbar.top;
@@ -50,15 +51,18 @@ $(function () {
 
                     loader.fadeOut(200, function () {
                         modal.modal("hide");
-                        showFlashJs(data);
+                        showFlash(data);
                         currentForm = undefined;
                     });
                 },
-                error: function (resultat, statut, erreur) {
+
+                error: function (res, status, error) {
                     buttons.attr('disabled', false);
+
                     loader.fadeOut(200, function () {
                         modal.modal("hide");
                         currentForm = undefined;
+                        showFlash('Erreur lors du chargement (' + res.status + ') ' + error, true);
                     });
                 }
             });
@@ -83,15 +87,18 @@ $(function () {
 
                     loader.fadeOut(200, function () {
                         modal.modal("hide");
-                        showFlashJs(data);
+                        showFlash(data);
                         currentForm = undefined;
                     });
                 },
-                error: function (resultat, statut, erreur) {
+
+                error: function (res, status, error) {
                     buttons.attr('disabled', false);
+
                     loader.fadeOut(200, function () {
                         modal.modal("hide");
                         currentForm = undefined;
+                        showFlash('Erreur lors du chargement (' + res.status + ') ' + error, true);
                     });
                 }
             });
@@ -116,17 +123,18 @@ $(function () {
 
                     success: function (data, status) {
                         buttons.attr('disabled', false);
-                        $("tr#" + data.id)
-                            .html(data.html);
+                        $("tr#" + data.id).html(data.html);
 
                         loader.fadeOut(200, function () {
-                            showFlashJs(data.message);
+                            showFlash(data.message);
                         });
                     },
 
-                    error: function (resultat, statut, erreur) {
+                    error: function (res, status, error) {
+                        buttons.attr('disabled', false);
+
                         loader.fadeOut(200, function () {
-                            buttons.attr('disabled', false);
+                            showFlash('Erreur lors du chargement (' + res.status + ') ' + error, true);
                         });
                     }
                 });
@@ -138,24 +146,36 @@ $(function () {
             currentForm = $(this);
         });
 
-    $("#flash-js, #flash-php").on("mousedown", function () {
-        $(this).stop().fadeOut(0);
+    flash.on("mouseenter", function () {
+        $(this).stop().hide(0);
     });
 
-    function showFlashJs(message) {
-        $("#flash-js")
-            .stop()
-            .hide(0)
-            .html('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> ' + message)
-            .fadeIn(100)
-            .fadeOut(3500);
+    function showFlash(message, type) {
+        flash.stop().hide(0);
+
+        if(!type) {
+            flash
+                .html('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> ' + message)
+                .removeClass('ok')
+                .removeClass('ko')
+                .addClass('ok');
+        }
+        else {
+            flash
+                .html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> ' + message)
+                .removeClass('ok')
+                .removeClass('ko')
+                .addClass('ko');
+        }
+
+        flash.show(0).fadeOut(3500);
     }
 
-    if ($("#flash-php").html().trim() !== '') {
-        $("#flash-php")
+    if (flash.html().trim() !== '') {
+        flash
             .stop()
             .hide(0)
-            .fadeIn(100)
+            .show(0)
             .fadeOut(3500);
     }
 

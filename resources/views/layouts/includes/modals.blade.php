@@ -48,11 +48,8 @@
     </div>
 </div>
 
-<div id="loader">
-    <img src="{{ url('/assets/img/loader.gif') }}" alt="Loader" />
-</div>
-<div id="flash-js"></div>
-<div id="flash-php">
+<div id="loader"><img src="{{ url('/assets/img/loader.gif') }}" alt="Loader" /></div>
+<div id="flash" class="ok">
     @if(Session::has('message'))
         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
         {{ Session::get('message') }}

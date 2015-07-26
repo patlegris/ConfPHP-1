@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller {
 
+    public function __construct() {
+        $this->middleware('auth', ['except' => ['store', 'index']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,14 +22,6 @@ class CommentController extends Controller {
             ->sortByDesc('created_at');
 
         return view('dashboard.indexComment', compact('comments'));
-    }
-
-    public function validateComment() {
-        $comments = Comment::all()
-            ->sortByDesc('created_at')
-            ->where('status', 'unpublish');
-
-        return view('dashboard.validateComment', compact('comments'));
     }
 
     /**
@@ -47,7 +42,7 @@ class CommentController extends Controller {
     public function store(Requests\StoreCommentFormRequest $request) {
         Comment::create($request->all());
 
-        return back()->with('message', 'Commentaire ajouté !');
+        return back()->with('message', 'Commentaire en attente de validation');
     }
 
     /**
@@ -93,18 +88,6 @@ class CommentController extends Controller {
         return 'Commentaire supprimé';
     }
 
-    public function putPublish($id) {
-        return $this->changeStatus(Comment::find($id), 'publish');
-    }
-
-    public function putSpam($id) {
-        return $this->changeStatus(Comment::find($id), 'spam');
-    }
-
-    public function putUnpublish($id) {
-        return $this->changeStatus(Comment::find($id), 'unpublish');
-    }
-
     public function getAll() {
         return $this->changeFilter('all');
     }
@@ -121,8 +104,17 @@ class CommentController extends Controller {
         return $this->changeFilter('spam');
     }
 
+    public function putPublish($id) {
+        return $this->changeStatus(Comment::find((int)$id), 'publish');
+    }
 
+    public function putSpam($id) {
+        return $this->changeStatus(Comment::find((int)$id), 'spam');
+    }
 
+    public function putUnpublish($id) {
+        return $this->changeStatus(Comment::find((int)$id), 'unpublish');
+    }
 
     private function changeFilter($filter) {
         if ($filter == 'all') {

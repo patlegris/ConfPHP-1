@@ -63,6 +63,13 @@ class FrontController extends Controller {
         return redirect('/')->with('message', 'Email envoyé');
     }
 
+    public function getShowPost($id) {
+        if (!$post = Post::where('slug', $id)->first())
+            $post = Post::find((int)$id);
+
+        return view('front.showPost', compact('post'));
+    }
+
     /**
      * About action, show the about page
      *

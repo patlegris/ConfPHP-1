@@ -157,6 +157,12 @@ class PostController extends Controller {
         return 'Conférence supprimée';
     }
 
+    /**
+     * Change the conference status
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function putStatus($id) {
         $post = Post::find($id);
 

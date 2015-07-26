@@ -26,8 +26,8 @@
 @endif
 
 <p>
-    @if($post->count_comments)
-        Nombre de commentaires : {{ $post->count_comments }}
+    @if($post->publishComments()->count() > 0)
+        Nombre de commentaires : {{ $post->publishComments()->count() }}
     @else
         Soyez le premier à laisser un commentaire !
     @endif
