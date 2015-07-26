@@ -81,5 +81,12 @@ class FrontController extends Controller {
         return view('front.contact');
     }
 
-
+    /**
+     * Contact action, show the contact page
+     *
+     * @return \Illuminate\View\View
+     */
+    public function getLegalNotice() {
+        return view('front.legal-notice');
+    }
 }

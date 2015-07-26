@@ -47,8 +47,6 @@ class PostController extends Controller {
         $params['user_id'] = Auth::user()->id;
 
         $post = Post::create($params);
-
-        $post->slug = $params['title'];
         $post->tags()->attach($params['tags']);
 
         if ($request->hasFile('thumbnail_link')) {
@@ -101,22 +99,18 @@ class PostController extends Controller {
     /**
      * Update the specified resource in storage.
      *
-     * @param Requests\StorePostFormRequest|Request $request
+     * @param Requests\UpdatePostFormRequest $request
      * @param  int $id
      * @return Response
      */
-    public function update(Requests\StorePostFormRequest $request, $id) {
-        $post = Post::find($id);
-
+    public function update(Requests\UpdatePostFormRequest $request, $id) {
         $params = $request->all();
         $params['user_id'] = Auth::user()->id;
 
+        $post = Post::find($id);
         $post->tags()->detach();
-
         $post->update($params);
-
         $post->tags()->attach($request->input('tags'));
-        $post->slug = $params['title'];
 
         if ($request->hasFile('thumbnail_link')) {
             $file = $request->file('thumbnail_link');
@@ -127,7 +121,7 @@ class PostController extends Controller {
             Image::make($file->getRealPath(), [
                 'width'  => 200,
                 'height' => 200
-            ])->save('upload/thumb-' . $rand_name);
+            ])->save('assets/upload/thumb-' . $rand_name);
 
             $post->thumbnail_link = 'thumb-' . $rand_name;
         }

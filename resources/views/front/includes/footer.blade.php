@@ -3,19 +3,19 @@
         <div class="container">
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>
+                    <li class="{{ Active::check('') }}">
                         <a href="{{ url('/') }}">
                             Accueil
                         </a>
                     </li>
 
-                    <li>
-                        <a href="{{ url('mentions') }}">
+                    <li class="{{ Active::check('legal-notice') }}">
+                        <a href="{{ url('legal-notice') }}">
                             Mentions légales
                         </a>
                     </li>
 
-                    <li>
+                    <li class="{{ Active::check('contact') }}">
                         <a href="{{ url('contact') }}">
                             Contact
                         </a>

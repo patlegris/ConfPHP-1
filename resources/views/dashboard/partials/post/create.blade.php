@@ -17,6 +17,16 @@
 </div>
 
 <div class="form-group">
+    {!! Form::label('slug', 'Slug', ['class' => 'col-lg-offset-2 col-lg-1 control-label']) !!}
+    <div class="col-lg-7">
+        {!! Form::text('slug', '', ['class' => 'form-control', 'placeholder' => 'Slug pour le référencement']) !!}
+        @foreach($errors->get('slug') as $message)
+            <div class="text-danger text"><em>{{ $message }}</em></div>
+        @endforeach
+    </div>
+</div>
+
+<div class="form-group">
     {!! Form::label('date_start', 'Date de début (*)', ['class' => 'col-lg-offset-2 col-lg-1 control-label']) !!}
     <div class="col-lg-7">
         <div class="input-group">

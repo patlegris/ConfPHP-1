@@ -7,8 +7,8 @@
                         Accueil
                     </a>
                 </li>
-                <li class="{{ Active::check('about') }}">
-                    <a href="{{ url('about') }}">
+                <li class="{{ Active::check('a-propos') }}">
+                    <a href="{{ url('a-propos') }}">
                         À propos
                     </a>
                 </li>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class StorePostFormRequest extends Request {
+class UpdatePostFormRequest extends Request {
 
     /**
      * Determine if the user is authorized to make this request.
@@ -21,7 +21,7 @@ class StorePostFormRequest extends Request {
     public function rules() {
         return [
             'title'          => 'required',
-            'slug'           => 'unique:posts,slug',
+            'slug'           => 'unique:posts,slug,' . $this->segment(2),
             'date_start'     => 'required',
             'date_end'       => 'required',
             'url_site'       => 'url',

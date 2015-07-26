@@ -12,27 +12,37 @@
 */
 
 /*
- * Front routes
- */
+|--------------------------------------------------------------------------
+| Front routes
+|--------------------------------------------------------------------------
+*/
 Route::get('/', 'FrontController@getHome');
-Route::get('about', 'FrontController@getAbout');
+Route::get('a-propos', 'FrontController@getAbout');
 Route::get('contact', 'FrontController@getContact');
+Route::get('legal-notice', 'FrontController@getLegalNotice');
 
 Route::post('search', 'FrontController@postSearch');
 Route::post('contact', 'FrontController@postContact');
 
 /*
- * Auth routes
- */
-Route::get('login', 'Auth\AuthController@getLogin');
-Route::post('login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
-
-/*
- * Dashboard routes
- */
+|--------------------------------------------------------------------------
+| Dashboard routes
+|--------------------------------------------------------------------------
+*/
 Route::get('dashboard', 'DashboardController@indexPost');
 Route::get('sort-comment/{status}', 'DashboardController@getSortComment');
+
+/*
+|--------------------------------------------------------------------------
+| Auth routes
+|--------------------------------------------------------------------------
+*/
+Route::get('login', 'Auth\AuthController@getLogin');
+Route::get('logout', 'Auth\AuthController@getLogout');
+
+Route::post('login', 'Auth\AuthController@postLogin');
+
+
 
 
 /*

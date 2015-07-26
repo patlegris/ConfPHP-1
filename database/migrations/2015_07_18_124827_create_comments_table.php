@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration {
             $table->text('message');
             $table->enum('status', ['publish', 'unpublish', 'spam'])->default('unpublish');
 
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('post_id')
