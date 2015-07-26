@@ -47,7 +47,6 @@ class FrontController extends Controller {
      * @return \Illuminate\Http\RedirectResponse
      */
     public function postContact(Requests\ContactFormRequest $request) {
-
         $email = $request->input('email');
         $content = $request->input('content');
 
@@ -63,6 +62,13 @@ class FrontController extends Controller {
         return redirect('/')->with('message', 'Email envoyé');
     }
 
+    /**
+     * Show post action, show one post. Search by slug first,
+     * and if no result, search by id
+     *
+     * @param $id
+     * @return \Illuminate\View\View
+     */
     public function getShowPost($id) {
         if (!$post = Post::where('slug', $id)->first())
             $post = Post::find((int)$id);

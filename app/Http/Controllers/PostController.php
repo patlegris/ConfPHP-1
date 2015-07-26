@@ -72,28 +72,8 @@ class PostController extends Controller {
      *
      * @param  int $id
      * @return Response
-     * @internal param null $slug
-     * @internal param Request $request
      */
     public function show($id) {
-        /*if (!$post = Post::where('slug', $id)->first())
-            $post = Post::find((int)$id);
-
-        return view('front.showPost', compact('post'));
-
-        $post = Post::find($id);
-
-        if ($post->status == 'publish') $post->status = 'unpublish';
-        else $post->status = 'publish';
-
-        $post->save();
-
-        return response()->json([
-            'html'    => view('dashboard.partials.post.show', compact('post'))->render(),
-            'message' => 'Statut de conférence modifié (' . $post->status . ')',
-            'id'      => $post->id
-        ]);*/
-
         abort(404);
     }
 
@@ -158,7 +138,7 @@ class PostController extends Controller {
     }
 
     /**
-     * Change the conference status
+     * Change the post status
      *
      * @param $id
      * @return \Illuminate\Http\JsonResponse
