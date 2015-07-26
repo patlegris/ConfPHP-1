@@ -35,7 +35,7 @@ class CommentController extends Controller {
      * @return Response
      */
     public function create() {
-        //
+        abort(404);
     }
 
     /**
@@ -57,7 +57,7 @@ class CommentController extends Controller {
      * @return Response
      */
     public function show($id) {
-        //
+        abort(404);
     }
 
     /**
@@ -67,7 +67,7 @@ class CommentController extends Controller {
      * @return Response
      */
     public function edit($id) {
-        //
+        abort(404);
     }
 
     /**
@@ -78,46 +78,7 @@ class CommentController extends Controller {
      * @return Response
      */
     public function update(Request $request, $id) {
-        //
-    }
-
-    public function putPublish($id) {
-        $comment = Comment::find($id);
-
-        $comment->status = 'publish';
-        $comment->save();
-
-        return response()->json([
-            'html'    => view('dashboard.partials.comment.show', compact('comment'))->render(),
-            'message' => 'Statut du commentaire modifié (publish)',
-            'id'      => $comment->id
-        ]);
-    }
-
-    public function putSpam($id) {
-        $comment = Comment::find($id);
-
-        $comment->status = 'spam';
-        $comment->save();
-
-        return response()->json([
-            'html'    => view('dashboard.partials.comment.show', compact('comment'))->render(),
-            'message' => 'Statut du commentaire modifié (publish)',
-            'id'      => $comment->id
-        ]);
-    }
-
-    public function putUnpublish($id) {
-        $comment = Comment::find($id);
-
-        $comment->status = 'unpublish';
-        $comment->save();
-
-        return response()->json([
-            'html'    => view('dashboard.partials.comment.show', compact('comment'))->render(),
-            'message' => 'Statut du commentaire modifié (unpublish)',
-            'id'      => $comment->id
-        ]);
+        abort(404);
     }
 
     /**
@@ -130,5 +91,61 @@ class CommentController extends Controller {
         Comment::destroy($id);
 
         return 'Commentaire supprimé';
+    }
+
+    public function putPublish($id) {
+        return $this->changeStatus(Comment::find($id), 'publish');
+    }
+
+    public function putSpam($id) {
+        return $this->changeStatus(Comment::find($id), 'spam');
+    }
+
+    public function putUnpublish($id) {
+        return $this->changeStatus(Comment::find($id), 'unpublish');
+    }
+
+    public function getAll() {
+        return $this->changeFilter('all');
+    }
+
+    public function getPublish() {
+        return $this->changeFilter('publish');
+    }
+
+    public function getUnpublish() {
+        return $this->changeFilter('unpublish');
+    }
+
+    public function getSpam() {
+        return $this->changeFilter('spam');
+    }
+
+
+
+
+    private function changeFilter($filter) {
+        if ($filter == 'all') {
+            $comments = Comment::all()
+                ->sortByDesc('created_at');
+        }
+        else {
+            $comments = Comment::all()
+                ->sortByDesc('created_at')
+                ->where('status', $filter);
+        }
+
+        return view('dashboard.partials.comment.index', compact('comments'));
+    }
+
+    private function changeStatus($comment, $status) {
+        $comment->status = $status;
+        $comment->save();
+
+        return response()->json([
+            'html'    => view('dashboard.partials.comment.show', compact('comment'))->render(),
+            'message' => 'Statut du commentaire modifié',
+            'id'      => $comment->id
+        ]);
     }
 }

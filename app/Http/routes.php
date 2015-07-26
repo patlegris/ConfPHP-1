@@ -26,10 +26,24 @@ Route::post('contact', 'FrontController@postContact');
 
 /*
 |--------------------------------------------------------------------------
-| Dashboard routes
+| Dashboard routes - with middleware 'auth' and 'dashboard' prefix
 |--------------------------------------------------------------------------
 */
-Route::get('dashboard', 'DashboardController@indexPost');
+Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
+    Route::resource('conference', 'PostController');
+    Route::resource('comment', 'CommentController');
+
+    Route::get('all-comment', 'CommentController@getAll');
+    Route::get('publish-comment', 'CommentController@getPublish');
+    Route::get('unpublish-comment', 'CommentController@getUnpublish');
+    Route::get('spam-comment', 'CommentController@getSpam');
+
+    Route::put('conference/{id}/status', 'PostController@putStatus');
+    Route::put('comment/{id}/publish', 'CommentController@putPublish');
+    Route::put('comment/{id}/unpublish', 'CommentController@putUnpublish');
+    Route::put('comment/{id}/spam', 'CommentController@putSpam');
+});
+
 Route::get('sort-comment/{status}', 'DashboardController@getSortComment');
 
 /*
@@ -43,19 +57,17 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 Route::post('login', 'Auth\AuthController@postLogin');
 
 
-
-
 /*
  * Resource routes
  */
-Route::resource('conference', 'PostController');
-Route::resource('comment', 'CommentController');
+
+
 
 /*
  * Other specific routes
  */
-Route::get('validate-comment', 'CommentController@validateComment');
-Route::put('conference/{id}/status', 'PostController@updateStatus');
+/*Route::get('validate-comment', 'CommentController@validateComment');
+
 Route::put('comment/{id}/publish', 'CommentController@putPublish');
 Route::put('comment/{id}/unpublish', 'CommentController@putUnpublish');
-Route::put('comment/{id}/spam', 'CommentController@putSpam');
+Route::put('comment/{id}/spam', 'CommentController@putSpam');*/

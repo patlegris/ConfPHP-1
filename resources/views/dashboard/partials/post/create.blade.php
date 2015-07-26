@@ -1,4 +1,4 @@
-{!! Form::open(['url' => 'conference', 'files' => true, 'class' => 'form-horizontal']) !!}
+{!! Form::open(['url' => 'dashboard/conference', 'files' => true, 'class' => 'form-horizontal']) !!}
 
 <div class="form-group">
     <div class="col-lg-offset-2 col-lg-1">

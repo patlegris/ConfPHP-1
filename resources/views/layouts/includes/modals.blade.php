@@ -48,19 +48,9 @@
     </div>
 </div>
 
-<div id="modal-change-status" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4>Veuillez patienter</h4>
-            </div>
-            <div class="modal-body text-center">
-                <img class="loader" src="{{ url('/assets/img/loader.gif') }}" alt="Loader" />
-            </div>
-        </div>
-    </div>
+<div id="loader">
+    <img src="{{ url('/assets/img/loader.gif') }}" alt="Loader" />
 </div>
-
 <div id="flash-js"></div>
 <div id="flash-php">
     @if(Session::has('message'))

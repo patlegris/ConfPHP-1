@@ -1,5 +1,6 @@
 $(function () {
 
+    var loader = $("#loader");
     var currentForm;
 
     if (navbar = $("#navbar-top").offset()) var navbarOffsetTop = navbar.top;
@@ -32,25 +33,32 @@ $(function () {
     });
 
     $("[data-delete-post]").on("click", function (e) {
-        $(".loader").css("opacity", 1).fadeIn(300, function () {
-            $(this).delay(500);
+        var modal = $("#modal-delete-post"),
+            loader = $("#loader"),
+            buttons = $("button");
+
+        loader.css("opacity", 1).fadeIn(200, function () {
+
             $.ajax({
                 url: currentForm.attr('action'),
                 type: 'POST',
                 data: currentForm.serialize(),
 
                 success: function (data, status) {
-                    currentForm.parent().parent().fadeOut(500);
-                    $(".loader").fadeOut(300, function () {
-                        currentForm = undefined;
-                        $("#modal-delete-post").modal("hide");
+                    buttons.attr('disabled', false);
+                    currentForm.parent().parent().fadeOut(200);
+
+                    loader.fadeOut(200, function () {
+                        modal.modal("hide");
                         showFlashJs(data);
+                        currentForm = undefined;
                     });
                 },
                 error: function (resultat, statut, erreur) {
-                    $(".loader").fadeOut(300, function () {
+                    buttons.attr('disabled', false);
+                    loader.fadeOut(200, function () {
+                        modal.modal("hide");
                         currentForm = undefined;
-                        $("#modal-delete-post").modal("hide");
                     });
                 }
             });
@@ -58,25 +66,32 @@ $(function () {
     });
 
     $("[data-delete-comment]").on("click", function (e) {
-        $(".loader").css("opacity", 1).fadeIn(300, function () {
-            $(this).delay(500);
+        var modal = $("#modal-delete-comment"),
+            loader = $("#loader"),
+            buttons = $("button");
+
+        loader.css("opacity", 1).fadeIn(200, function () {
+
             $.ajax({
                 url: currentForm.attr('action'),
                 type: 'POST',
                 data: currentForm.serialize(),
 
                 success: function (data, status) {
-                    currentForm.parent().parent().fadeOut(500);
-                    $(".loader").fadeOut(300, function () {
-                        currentForm = undefined;
-                        $("#modal-delete-comment").modal("hide");
+                    buttons.attr('disabled', false);
+                    currentForm.parent().parent().fadeOut(200);
+
+                    loader.fadeOut(200, function () {
+                        modal.modal("hide");
                         showFlashJs(data);
+                        currentForm = undefined;
                     });
                 },
                 error: function (resultat, statut, erreur) {
-                    $(".loader").fadeOut(300, function () {
+                    buttons.attr('disabled', false);
+                    loader.fadeOut(200, function () {
+                        modal.modal("hide");
                         currentForm = undefined;
-                        $("#modal-delete-comment").modal("hide");
                     });
                 }
             });
@@ -86,13 +101,13 @@ $(function () {
     $("article.dashboard")
         .on("submit", "form.status", function (e) {
             var form = $(this),
-                modal = $("#modal-change-status"),
-                loader = $(modal.find(".loader"));
+                loader = $("#loader"),
+                buttons = $("button");
 
             e.preventDefault();
 
-            loader.css("opacity", 1).fadeIn(300, function () {
-                loader.delay(500);
+            buttons.attr('disabled', true);
+            loader.css("opacity", 1).fadeIn(200, function () {
 
                 $.ajax({
                     url: form.attr('action'),
@@ -100,18 +115,18 @@ $(function () {
                     data: form.serialize(),
 
                     success: function (data, status) {
+                        buttons.attr('disabled', false);
                         $("tr#" + data.id)
                             .html(data.html);
 
-                        loader.fadeOut(300, function () {
-                            modal.modal("hide");
+                        loader.fadeOut(200, function () {
                             showFlashJs(data.message);
                         });
                     },
 
                     error: function (resultat, statut, erreur) {
-                        loader.fadeOut(300, function () {
-                            modal.modal("hide");
+                        loader.fadeOut(200, function () {
+                            buttons.attr('disabled', false);
                         });
                     }
                 });
@@ -132,38 +147,39 @@ $(function () {
             .stop()
             .hide(0)
             .html('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> ' + message)
-            .slideDown(500, function () {
-                $(this).fadeOut(5000);
-            });
+            .fadeIn(100)
+            .fadeOut(3500);
     }
 
     if ($("#flash-php").html().trim() !== '') {
         $("#flash-php")
             .stop()
             .hide(0)
-            .slideDown(500, function () {
-                $(this).fadeOut(5000);
-            });
+            .fadeIn(100)
+            .fadeOut(3500);
     }
 
-    $("[data-menu]").click(function () {
-        $.ajax({
-            url: 'sort-comment/' + $(this).attr('data-menu'),
-            type: 'GET',
+    $("button.ajax").click(function () {
+        var buttons = $("button"),
+            url = $(this).attr('data-url');
 
-            success: function (data, status) {
-                $("table").html(data);
+        buttons.attr('disabled', true);
+        loader.css("opacity", 1).fadeIn(200, function () {
+            $.ajax({
+                url: url,
+                type: 'GET',
 
-                loader.fadeOut(300, function () {
-                    modal.modal("hide");
-                });
-            },
+                success: function (data, status) {
+                    buttons.attr('disabled', false);
+                    $("table").html(data);
+                    loader.fadeOut(200);
+                },
 
-            error: function (resultat, statut, erreur) {
-                loader.fadeOut(300, function () {
-                    modal.modal("hide");
-                });
-            }
+                error: function (resultat, statut, erreur) {
+                    buttons.attr('disabled', false);
+                    loader.fadeOut(200);
+                }
+            });
         });
     });
 });

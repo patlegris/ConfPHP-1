@@ -12,7 +12,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('auth/logout') }}">
+                    <a href="{{ url('logout') }}">
                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         Se déconnecter
                     </a>

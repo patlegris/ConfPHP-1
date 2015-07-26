@@ -24,7 +24,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="{{ url('dashboard') }}">
+                        <a href="{{ url('dashboard/conference') }}">
                             Administration
                         </a>
                     </li>

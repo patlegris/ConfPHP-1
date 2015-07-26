@@ -12,17 +12,16 @@ use Response;
 
 class PostController extends Controller {
 
-    public function __construct() {
-        $this->middleware('auth', ['except' => 'show']);
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
     public function index() {
-        //
+        $posts = Post::all()
+            ->sortByDesc('date_start');
+
+        return view('dashboard.indexPost', compact('posts'));
     }
 
     /**
@@ -65,7 +64,7 @@ class PostController extends Controller {
 
         $post->save();
 
-        return redirect('dashboard')->with('message', 'Conférence créée.');
+        return redirect('dashboard/conference')->with('message', 'Conférence créée');
     }
 
     /**
@@ -77,10 +76,25 @@ class PostController extends Controller {
      * @internal param Request $request
      */
     public function show($id) {
-        if (!$post = Post::where('slug', $id)->first())
+        /*if (!$post = Post::where('slug', $id)->first())
             $post = Post::find((int)$id);
 
         return view('front.showPost', compact('post'));
+
+        $post = Post::find($id);
+
+        if ($post->status == 'publish') $post->status = 'unpublish';
+        else $post->status = 'publish';
+
+        $post->save();
+
+        return response()->json([
+            'html'    => view('dashboard.partials.post.show', compact('post'))->render(),
+            'message' => 'Statut de conférence modifié (' . $post->status . ')',
+            'id'      => $post->id
+        ]);*/
+
+        abort(404);
     }
 
     /**
@@ -131,21 +145,6 @@ class PostController extends Controller {
         return redirect('dashboard')->with('message', 'Conférence modifiée');
     }
 
-    public function updateStatus(Request $request, $id) {
-        $post = Post::find($id);
-
-        if ($post->status == 'publish') $post->status = 'unpublish';
-        else $post->status = 'publish';
-
-        $post->save();
-
-        return response()->json([
-            'html'    => view('dashboard.partials.post.show', compact('post'))->render(),
-            'message' => 'Statut de conférence modifié (' . $post->status . ')',
-            'id'      => $post->id
-        ]);
-    }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -156,5 +155,20 @@ class PostController extends Controller {
         Post::destroy($id);
 
         return 'Conférence supprimée';
+    }
+
+    public function putStatus($id) {
+        $post = Post::find($id);
+
+        if ($post->status == 'publish') $post->status = 'unpublish';
+        else $post->status = 'publish';
+
+        $post->save();
+
+        return response()->json([
+            'html'    => view('dashboard.partials.post.show', compact('post'))->render(),
+            'message' => 'Statut de conférence modifié',
+            'id'      => $post->id
+        ]);
     }
 }

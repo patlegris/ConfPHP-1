@@ -22,33 +22,27 @@
     <div class="row container-fluid">
         @if($comment->status == 'publish')
             <div class="col-lg-6">
-                {!! Form::open(['id' => $comment->id, 'class' => 'status', 'url' => 'comment/' . $comment->id .
+                {!! Form::open(['id' => $comment->id, 'class' => 'status', 'url' => 'dashboard/comment/' . $comment->id .
                 '/unpublish', 'method' => 'PUT']) !!}
-                <button data-toggle="modal"
-                        data-target="#modal-change-status"
-                        class="btn btn-default">
+                <button class="btn btn-default">
                     Dé-publier
                 </button>
                 {!! Form::close() !!}
             </div>
 
             <div class="col-lg-6">
-                {!! Form::open(['id' => $comment->id, 'class' => 'status', 'url' => 'comment/' . $comment->id . '/spam',
+                {!! Form::open(['id' => $comment->id, 'class' => 'status', 'url' => 'dashboard/comment/' . $comment->id . '/spam',
                 'method' => 'PUT']) !!}
-                <button data-toggle="modal"
-                        data-target="#modal-change-status"
-                        class="btn btn-warning">
+                <button class="btn btn-warning">
                     Spam
                 </button>
                 {!! Form::close() !!}
             </div>
         @else
             <div class="col-lg-6">
-                {!! Form::open(['id' => $comment->id, 'class' => 'status', 'url' => 'comment/' . $comment->id .
+                {!! Form::open(['id' => $comment->id, 'class' => 'status', 'url' => 'dashboard/comment/' . $comment->id .
                 '/publish', 'method' => 'PUT']) !!}
-                <button data-toggle="modal"
-                        data-target="#modal-change-status"
-                        class="btn btn-success">
+                <button class="btn btn-success">
                     Publier
                 </button>
                 {!! Form::close() !!}
@@ -60,8 +54,7 @@
 </td>
 
 <td class="text-center">
-    {!! Form::open(['class' => 'delete', 'url' => 'comment/' . $comment->id, 'method' => 'DELETE']) !!}
-
+    {!! Form::open(['class' => 'delete', 'url' => 'dashboard/comment/' . $comment->id, 'method' => 'DELETE']) !!}
     <div class="row container-fluid">
         <div class="col-lg-12">
             <button data-toggle="modal"

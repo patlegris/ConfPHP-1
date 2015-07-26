@@ -25,17 +25,21 @@
 </td>
 
 <td>
-    {!! Form::open(['id' => $post->id, 'class' => 'status', 'url' => 'conference/' . $post->id . '/status', 'method' => 'PUT']) !!}
-    <button data-toggle="modal"
-            data-target="#modal-change-status"
-            class="btn btn-warning">
-        {{ $post->status == 'publish' ? 'Unpublish' : 'Publish' }}
-    </button>
+    {!! Form::open(['id' => $post->id, 'class' => 'status', 'url' => 'dashboard/conference/' . $post->id . '/status', 'method' => 'PUT']) !!}
+    @if($post->status == 'publish')
+        <button class="btn btn-default">
+            Dé-publier
+        </button>
+    @else
+        <button class="btn btn-success">
+            Publier
+        </button>
+    @endif
     {!! Form::close() !!}
 </td>
 
 <td class="text-center">
-    {!! Form::open(['class' => 'delete', 'url' => 'conference/' . $post->id, 'method' => 'DELETE']) !!}
+    {!! Form::open(['class' => 'delete', 'url' => 'dashboard/conference/' . $post->id, 'method' => 'DELETE']) !!}
     <button data-toggle="modal"
             data-target="#modal-delete-post"
             class="btn btn-danger">
