@@ -22,7 +22,7 @@ class ActiveServiceProvider extends ServiceProvider {
      * @return void
      */
     public function register() {
-        $this->app->singleton('active', function() {
+        $this->app->singleton('active', function () {
             return new Active;
         });
     }
